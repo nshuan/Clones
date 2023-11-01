@@ -19,4 +19,14 @@ public class Navigator : MonoBehaviour
     {
         SceneManager.LoadScene("GamePlay", LoadSceneMode.Single);
     }
+
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene("StartScreen");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

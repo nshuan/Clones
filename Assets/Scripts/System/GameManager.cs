@@ -60,17 +60,23 @@ public class GameManager : MonoBehaviour
         playerScript.Thaw();
         CameraManager.Instance.ChangeTarget(player);
         UIManager.Instance.BossFightUI(EnemyManager.Instance.currentBossName);
+
+        SoundManager.Instance.PlayBossTheme();
     }
 
     public void BossFightEnd()
     {
         UIManager.Instance.BossFightUIOff();
+
+        SoundManager.Instance.PlayTheme();
     }
 
     public void GameOver()
     {
         timeScale = 0.05f;
         PlayerData.UpdateSurvivedTime(UIManager.Instance.StopTimer());
+
+        UIManager.Instance.GameOver();
     }
     #endregion
 

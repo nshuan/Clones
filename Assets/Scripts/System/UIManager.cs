@@ -50,6 +50,14 @@ public class UIManager : MonoBehaviour
     private float bossIntroCounter = 0f;
     #endregion
 
+    #region Gameover
+    [SerializeField] private GameObject gameoverBoard;
+    [SerializeField] private TMP_Text finalScore;
+    [SerializeField] private TMP_Text finalTime;
+    [SerializeField] private TMP_Text finalCoin;
+    [SerializeField] private TMP_Text finalSoul;
+    #endregion
+
     void Awake()
     {
         Instance = this;
@@ -79,6 +87,17 @@ public class UIManager : MonoBehaviour
             bossIntroCounter = 0f;
             GameManager.Instance.BossFightStart();
         }
+    }
+
+    public void GameOver()
+    {
+        finalScore.text = scoreText.text;
+        finalTime.text = timerText.text;
+        finalCoin.text = coinText.text;
+        finalSoul.text = soulText.text;
+
+        inforBoard.gameObject.SetActive(false);
+        gameoverBoard.SetActive(true);
     }
 
     #region Informations
