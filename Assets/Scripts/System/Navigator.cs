@@ -17,6 +17,7 @@ public class Navigator : MonoBehaviour
 
     public void LoadGameScene()
     {
+        PlayerData.ResetData();
         SceneManager.LoadScene("GamePlay", LoadSceneMode.Single);
     }
 

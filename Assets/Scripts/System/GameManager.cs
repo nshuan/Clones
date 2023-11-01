@@ -165,4 +165,14 @@ public static class PlayerData
     {
         enemyKilled += value;
     }
+
+    public static void ResetData()
+    {
+        score = 0;
+        soulFragment = 0;
+        level = 1;
+        survivedTime = 0;
+        coin = 0;
+        enemyKilled = 0;
+    }
 }

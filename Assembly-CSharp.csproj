@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\Objects\Items\ItemGun.cs" />
      <Compile Include="Assets\Scripts\Characters\Bosses\TheClone.cs" />
      <Compile Include="Assets\Scripts\System\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuButtons.cs" />
      <Compile Include="Assets\Scripts\Objects\Items\ItemCoin.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
      <Compile Include="Assets\Scripts\System\FxManager.cs" />
@@ -70,7 +71,6 @@
      <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
      <Compile Include="Assets\Scripts\Environment\GroundBehavior.cs" />
      <Compile Include="Assets\Scripts\Weapons\Bullets\BulletBlossom.cs" />
-     <Compile Include="Assets\Scripts\UI\MenuButtons.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

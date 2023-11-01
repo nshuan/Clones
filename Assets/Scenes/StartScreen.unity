@@ -1905,20 +1905,17 @@ MonoBehaviour:
     left button fires
 
     q
-    pick up
+    switched
 
-    g pick healths
-
-    break items to pick
+    break items to claim
 
 
-    clones drop coins
-    and souls
+    clones drop coins and souls
 
-    collect souls to level up
+    collect
+    souls to level up
 
-    Mutant clone appears after each
-    5 levels
+    Mutant clone appears after each 5 levels
 
 '
   m_isRightToLeft: 0

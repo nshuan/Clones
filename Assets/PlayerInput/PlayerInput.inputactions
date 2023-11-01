@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "QuitGunReplacement",
+                    "type": "Button",
+                    "id": "9fe931ea-b77c-4fca-9087-b22ec72958bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -206,6 +215,17 @@
                 },
                 {
                     "name": "",
+                    "id": "6d651f81-d6fb-44c9-bcff-1e5d392e8676",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3ec187e8-f72f-4b9c-92bf-49af0cf3bb79",
                     "path": "<Keyboard>/q",
                     "interactions": "",
@@ -223,6 +243,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "PickupItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c365b5bb-4e5d-4b27-bd53-ac8f3269b8fc",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "QuitGunReplacement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

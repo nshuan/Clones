@@ -121,6 +121,15 @@ public class PlayerBehavior : CharacterBehavior
         inventory.SwitchNextGun();
         UpdateGun();
     }
+
+    public void OnQuitGunReplacement(InputAction.CallbackContext context)
+    {
+        if (UIManager.Instance.replacingGun)
+        {
+            UIManager.Instance.replaceGunBoard.EndChoosing();
+            return;
+        }
+    }
     #endregion
 
     #region Battle
