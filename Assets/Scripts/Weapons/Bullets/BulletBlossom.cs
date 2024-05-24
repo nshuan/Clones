@@ -18,7 +18,7 @@ public class BulletBlossom : BulletBehavior
         int childNum = Random.Range(8, 17);
         float childSpeed = 22f - childNum;
 
-        GameObject childBullet = GunCollection.bulletCollection.GetBullet(childBulletType);
+        GameObject childBullet = BulletCollection.Instance.GetBullet(childBulletType);
         for (int i = 0; i < childNum; i++)
         {
             GameObject b = Instantiate(childBullet, transform.position, transform.rotation);

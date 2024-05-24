@@ -1,11 +1,11 @@
+using Managers;
 using System.Collections;
 using System.Collections.Generic;
+using Scripts.PlayerSettings;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 /// <summary>
 /// Inherited from class CharacterBehavior.
-/// Include input callback functions for user input.
 /// Can hit other CharacterBehavior objects.
 /// Can switch gun and be healed.
 /// </summary>/
@@ -13,32 +13,36 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Inventory))]
 public class PlayerBehavior : CharacterBehavior
 {
-    [Header("Player Fields")]
-
-    #region User input
-    private Vector2 movementInput;
-    private Vector2 mousePos;
-    #endregion
-
     [HideInInspector] public Inventory inventory;
 
+    protected override void Awake()
+    {
+        base.Awake();
+
+        PlayerInputActionManager.onMove += OnMove;
+        PlayerInputActionManager.onAim += OnAim;
+        PlayerInputActionManager.onDash += OnDash;
+        PlayerInputActionManager.onFire += OnFire;
+        PlayerInputActionManager.onSwitchGun += OnSwitchGun;
+        PlayerInputActionManager.onQuitGunReplacement += OnQuitGunReplacement;
+    }
+    
     void Start()
     {
         inventory = GetComponent<Inventory>();
 
-        gun = GunCollection.GetGun(inventory.GetCurrentGunId());
-        gunBullet = GunCollection.bulletCollection.GetBullet(gun.GetBulletType());
+        gun = GunManager.Instance.GetGun(inventory.GetCurrentGunId());
+        gunBullet = BulletCollection.Instance.GetBullet(gun.GetBulletType());
         bulletColor = spriteRenderer.color;
         UIManager.Instance.UpdateGunName(gun.GetName());
 
         timeScaleResistant = 1f;
+        
+        SetupCharacter(PlayerManager.Instance.CurrentCharacter);
     }
 
     void Update()
     {
-        tempMoveDirection = movementInput;
-        tempAimTargetPos = mousePos;
-
         CheckHit();
 
         if (gun == null) return;
@@ -51,7 +55,7 @@ public class PlayerBehavior : CharacterBehavior
         {
             if (isFiring)
             {
-                fireDirection = tempAimTargetPos - transform.position;
+                fireDirection = tempAimTargetPos - (Vector2)transform.position;
                 Fire();
                 SoundManager.Instance.PlayFireSound();
                 gunCdCounter = 0f;
@@ -61,55 +65,41 @@ public class PlayerBehavior : CharacterBehavior
             }
         }
     }
+    
+    public void SetupCharacter(PlayerCharacterSO charInfo)
+    {
+        // Setup stats
+        maxHealth = charInfo.MaxHealth;
+        damage = charInfo.Health;
+        speed = charInfo.Speed;
+        
+        // Setup visual
+        spriteRenderer.sprite = charInfo.AvatarSprite;
+        spriteRenderer.color = charInfo.Color;
+    }
 
     #region Player input
-    /// <summary>
-    /// Get user's movement input
-    /// </summary>
-    /// <param name="context"></param>
-    public void OnMove(InputAction.CallbackContext context)
+    protected void OnMove(Vector2 direction)
     {
-        movementInput = context.ReadValue<Vector2>();
+        tempMoveDirection = direction;
+    }
+    
+    protected void OnAim(Vector2 target)
+    {
+        tempAimTargetPos = target;
     }
 
-    /// <summary>
-    /// Get user's mouse position
-    /// </summary>
-    /// <param name="context"></param>
-    public void OnAim(InputAction.CallbackContext context)
+    protected void OnDash()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
+        Dash(tempAimTargetPos - (Vector2) transform.position, 8f, 3.6f);
     }
 
-    public void OnDash(InputAction.CallbackContext context)
+    protected void OnFire(bool firing)
     {
-        if (context.started)
-        {
-            Dash(mousePos - (Vector2) transform.position, 8f, 3.6f);
-        }
+        this.isFiring = firing;
     }
-
-    /// <summary>
-    /// Called when fire button is pressed
-    /// </summary>
-    /// <param name="context"></param>
-    public void OnFire(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            isFiring = true;
-        }
-        else if (context.canceled)
-        {
-            isFiring = false;
-        }
-    }
-
-    /// <summary>
-    /// Called when switch gun button is pressed
-    /// </summary>
-    /// <param name="context"></param>
-    public void OnSwitchGun(InputAction.CallbackContext context)
+    
+    protected void OnSwitchGun()
     {
         // When choosing gun slot to replace new gun, player can press Q to quit choosing if they do not want to change guns
         if (UIManager.Instance.replacingGun)
@@ -122,7 +112,7 @@ public class PlayerBehavior : CharacterBehavior
         UpdateGun();
     }
 
-    public void OnQuitGunReplacement(InputAction.CallbackContext context)
+    protected void OnQuitGunReplacement()
     {
         if (UIManager.Instance.replacingGun)
         {
@@ -171,8 +161,8 @@ public class PlayerBehavior : CharacterBehavior
 
     public void UpdateGun()
     {
-        gun = GunCollection.GetGun(inventory.GetCurrentGunId());
-        gunBullet = GunCollection.bulletCollection.GetBullet(gun.GetBulletType());
+        gun = GunManager.Instance.GetGun(inventory.GetCurrentGunId());
+        gunBullet = BulletCollection.Instance.GetBullet(gun.GetBulletType());
         UIManager.Instance.UpdateGunName(gun.GetName());
     }
 

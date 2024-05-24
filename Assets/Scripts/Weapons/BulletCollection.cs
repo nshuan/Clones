@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
-public class BulletCollection : MonoBehaviour
+public class BulletCollection : MonoSingleton<BulletCollection>
 {
     [SerializeField] private List<GameObject> bullets = new List<GameObject>();
 

@@ -1,3 +1,4 @@
+using Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class ChooseGunSlot : MonoBehaviour
         this.inventory = inventory;
         this.newGunId = newGunId;
         
-        newGunText.text = GunCollection.GetGun(newGunId).GetName();
+        newGunText.text = GunManager.Instance.GetGun(newGunId).GetName();
 
         int slotCount = inventory.GetMaxSlot();
 
@@ -34,14 +35,14 @@ public class ChooseGunSlot : MonoBehaviour
                             itemCardRT.rect.height);
         itemCardRT.localPosition = oriPos.position;
         itemCardRT.sizeDelta = oriPos.size;
-        itemCardRT.GetChild(0).GetComponent<TMP_Text>().text = GunCollection.GetGun(inventory.GetGunIdAt(0)).GetName();
+        itemCardRT.GetChild(0).GetComponent<TMP_Text>().text = GunManager.Instance.GetGun(inventory.GetGunIdAt(0)).GetName();
 
         for (int i = 1; i < slotCount; i++)
         {
             GameObject newCard = Instantiate(itemCard, transform);
             itemCardRT = newCard.GetComponent<RectTransform>();
             itemCardRT.localPosition = oriPos.position + new Vector2(cardWidth * i, 0f);
-            itemCardRT.GetChild(0).GetComponent<TMP_Text>().text = GunCollection.GetGun(inventory.GetGunIdAt(i)).GetName();
+            itemCardRT.GetChild(0).GetComponent<TMP_Text>().text = GunManager.Instance.GetGun(inventory.GetGunIdAt(i)).GetName();
         }
     }
 

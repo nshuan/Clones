@@ -24,7 +24,7 @@ public class BulletGoodBlossom : BulletBehavior
 
     private void Blossom()
     {
-        GameObject childBullet = GunCollection.bulletCollection.GetBullet(childBulletType);
+        GameObject childBullet = BulletCollection.Instance.GetBullet(childBulletType);
         for (int i = 0; i < childNum; i++)
         {
             GameObject b = Instantiate(childBullet, transform.position, transform.rotation);

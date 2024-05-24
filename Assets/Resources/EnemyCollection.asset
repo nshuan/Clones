@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552d0f52b88945888b668b4cd0f598fa, type: 3}
+  m_Name: EnemyCollection
+  m_EditorClassIdentifier: 
+  enemyTypes:
+  - name: Normie
+    type: 0
+    maxHealth: 60
+    baseDamage: 1
+    speed: 2
+    attackRange: 10
+    sizeScale: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    hasGun: 1
+    gunType: 0
+  - name: Runner
+    type: 1
+    maxHealth: 50
+    baseDamage: 1
+    speed: 6
+    attackRange: 0
+    sizeScale: 0.8
+    color: {r: 1, g: 1, b: 0, a: 1}
+    hasGun: 0
+    gunType: 0
+  - name: Hunter
+    type: 2
+    maxHealth: 80
+    baseDamage: 1
+    speed: 4
+    attackRange: 8
+    sizeScale: 1.2
+    color: {r: 1, g: 0, b: 0, a: 1}
+    hasGun: 1
+    gunType: 1
+  - name: Soldier
+    type: 3
+    maxHealth: 80
+    baseDamage: 1
+    speed: 4
+    attackRange: 12
+    sizeScale: 1.2
+    color: {r: 0, g: 1, b: 1, a: 1}
+    hasGun: 1
+    gunType: 2
+  - name: Tanker
+    type: 4
+    maxHealth: 140
+    baseDamage: 4
+    speed: 2
+    attackRange: 7
+    sizeScale: 1.6
+    color: {r: 0, g: 1, b: 0, a: 1}
+    hasGun: 1
+    gunType: 4

@@ -1,22 +1,26 @@
 
+using System;
+using UnityEngine;
+
+[Serializable]
 public class Gun
 {
-    // fire per second
-    private string name;
-    private int id;
-    private int baseDamage;
-    private float fireRate;
-    private int bulletType;
-    private float bulletSpeed;
-    private float bulletScale;
-    private float bulletLifeLength;
-    private int bulletsEachShot;
-    private float spread;
-    private bool automatic;
+    [SerializeField] private string name;
+    [SerializeField] private GunType type;
+    [SerializeField] private int id;
+    [SerializeField] private int baseDamage;
+    [SerializeField] private float fireRate;
+    [SerializeField] private int bulletType;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float bulletScale;
+    [SerializeField] private float bulletLifeLength;
+    [SerializeField] private int bulletsEachShot;
+    [SerializeField] private float spread;
+    [SerializeField] private bool automatic;
     
-    public Gun(string name, int id, int baseDamage, float fireRate, int bulletType, float bulletSpeed, float bulletScale, float bulletLifeLength, int bulletEachShot, float spread)
+    public Gun(GunType type, int id, int baseDamage, float fireRate, int bulletType, float bulletSpeed, float bulletScale, float bulletLifeLength, int bulletEachShot, float spread)
     {
-        this.name = name;
+        this.type = type;
         this.id = id;
         this.baseDamage = baseDamage;
         this.fireRate = fireRate;
@@ -29,9 +33,9 @@ public class Gun
         this.automatic = false;
     }
 
-    public Gun(string name, int id, int baseDamage, float fireRate, int bulletType, float bulletSpeed, float bulletScale, float bulletLifeLength, int bulletEachShot, float spread, bool automatic)
+    public Gun(GunType type, int id, int baseDamage, float fireRate, int bulletType, float bulletSpeed, float bulletScale, float bulletLifeLength, int bulletEachShot, float spread, bool automatic)
     {
-        this.name = name;
+        this.type = type;
         this.id = id;
         this.baseDamage = baseDamage;
         this.fireRate = fireRate;
@@ -46,7 +50,12 @@ public class Gun
 
     public string GetName()
     {
-        return name;
+        return type.ToString().ToLower();
+    }
+    
+    public GunType GetGunType()
+    {
+        return type;
     }
 
     public int GetId()

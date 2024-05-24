@@ -25,10 +25,6 @@ public abstract class CharacterBehavior : MonoBehaviour
     protected float timeScaleResistant = 0f;
     #endregion
 
-    #region Avatar
-    protected Sprite sprite;
-    #endregion
-
     #region Serializable
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] protected Collider2D cld;
@@ -45,7 +41,7 @@ public abstract class CharacterBehavior : MonoBehaviour
     protected State charState = new State();
     protected Vector2 tempMoveDirection;
     protected Vector3 tempMoveTargetPos;
-    protected Vector3 tempAimTargetPos;
+    protected Vector2 tempAimTargetPos;
 
     // If character does not use gun, gun is null.
     // Character keeps firing as long as isFiring = true.
@@ -85,7 +81,7 @@ public abstract class CharacterBehavior : MonoBehaviour
     public abstract void Die();
     #endregion
 
-    void Awake()
+    protected virtual void Awake()
     {
         health = maxHealth;
         bulletOffset = 1.5f;

@@ -1,6 +1,8 @@
+using Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyBehavior : CharacterBehavior
 {
@@ -53,7 +55,7 @@ public class EnemyBehavior : CharacterBehavior
         {
             if (isFiring)
             {
-                fireDirection = tempAimTargetPos - transform.position;
+                fireDirection = tempAimTargetPos - (Vector2)transform.position;
                 Fire();
                 Stand(Random.Range(gunCooldown / 4, gunCooldown * 3 / 4));
                 gunCdCounter = 0f;
@@ -86,7 +88,7 @@ public class EnemyBehavior : CharacterBehavior
 
         if (gun != null)
         {
-            gunBullet = GunCollection.bulletCollection.GetBullet(gun.GetBulletType());
+            gunBullet = BulletCollection.Instance.GetBullet(gun.GetBulletType());
             gunCooldown = 1 / gun.GetFireRate();
         }
 
@@ -101,7 +103,7 @@ public class EnemyBehavior : CharacterBehavior
         }
         if (Random.Range(0f, 1f) < gunRate)
         {
-            Gun newGun = GunCollection.GetRandomGun();
+            Gun newGun = GunManager.Instance.GetRandomGun();
             itemHolding.Add(new ItemData(newGun.GetName(), 1, newGun.GetId()));
         }
 

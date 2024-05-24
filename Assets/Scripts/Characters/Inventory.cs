@@ -1,6 +1,8 @@
+using Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Inventory : MonoBehaviour
 {
@@ -58,6 +60,6 @@ public class Inventory : MonoBehaviour
 
     public void ReplaceGun(int slot, int newGunId)
     {
-        gunSlots[slot] = Mathf.Clamp(newGunId, 0, GunCollection.guns.Count - 1);
+        gunSlots[slot] = Mathf.Clamp(newGunId, 0, GunManager.Instance.gunCount - 1);
     }
 }
