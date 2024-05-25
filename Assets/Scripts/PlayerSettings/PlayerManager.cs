@@ -36,6 +36,7 @@ namespace Scripts.PlayerSettings
 
         public bool GetCharacterStatus(int id)
         {
+            if (CharCollection.GetCharacterById(id).UnlockByDefault) return true;
             return _charCollection.CharactersStatus.LookupStatus(id);
         }
         

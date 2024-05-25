@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 669949298411761086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.70636153, y: -0.015240384, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1988301141
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,7 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 5761380861296097795}
+  trail: {fileID: 0}
   destroyFx: {fileID: 0}
-  childBulletType: 0
+  childBullet: {fileID: 4041250127294837180, guid: c04f3590a8f6fca439ed3586369303cd, type: 3}
+  childScale: 0.2
   childNum: 8
   childSpeed: 4
+  maxWave: 8

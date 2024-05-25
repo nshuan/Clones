@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,8 +15,11 @@ public class TheDot : CharacterBehavior
     #endregion
 
     #region Guns
-    private Gun cherry8 = new Gun(GunType.CherryCanon, -1, 10, 8, 2, 0f, 2f, 0.25f, 1, 0f);
-    private Gun cherry16 = new Gun(GunType.CherryCanon, -1, 10, 16, 3, 0f, 2f, 0f, 1, 0f);
+
+    private const GunType GunType1 = GunType.Cherry8;
+
+    private const GunType GunType2 = GunType.Cherry16;
+
     #endregion
 
     #region Temporaty variables
@@ -29,8 +33,8 @@ public class TheDot : CharacterBehavior
     {
         target = GameManager.Instance.player;
 
-        gun = cherry8;
-        gunBullet = BulletCollection.Instance.GetBullet(gun.GetBulletType());
+        gun = GunManager.Instance.GetGun(GunType1);
+        gunBullet = gun.GetBullet();
         gunCooldown = 1 / 1.6f / gun.GetFireRate();
 
         maxHealth = 1000;
@@ -136,8 +140,8 @@ public class TheDot : CharacterBehavior
             if (phase == 1)
             {
                 phase = 2;
-                gun = cherry16;
-                gunBullet = BulletCollection.Instance.GetBullet(gun.GetBulletType());
+                gun = GunManager.Instance.GetGun(GunType2);
+                gunBullet = gun.GetBullet();
             }
         }
 

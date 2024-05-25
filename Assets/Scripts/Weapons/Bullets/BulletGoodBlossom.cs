@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core.ObjectPooling;
 using UnityEngine;
 
 public class BulletGoodBlossom : BulletBehavior
 {
-    public int childBulletType;
+    public BulletBehavior childBullet;
+    [SerializeField] private float childScale;
     [SerializeField] private int childNum = 8;
     [SerializeField] private float childSpeed = 16f;
     [SerializeField] private int maxWave = 8;
@@ -19,23 +21,24 @@ public class BulletGoodBlossom : BulletBehavior
         direction += Vector2.Perpendicular(direction) * 0.5f;
 
         if (waveCount >= maxWave)
-            Destroy(gameObject);
+            DestroyBullet();
     }
 
     private void Blossom()
     {
-        GameObject childBullet = BulletCollection.Instance.GetBullet(childBulletType);
-        for (int i = 0; i < childNum; i++)
+        for (var i = 0; i < childNum; i++)
         {
-            GameObject b = Instantiate(childBullet, transform.position, transform.rotation);
-            BulletBehavior bScript = b.GetComponent<BulletBehavior>();
+            var b = PoolManager.Instance.Get<BulletBehavior>(childBullet);
+            b.transform.position = transform.position;
+            b.transform.rotation = transform.rotation;
+            b.transform.localScale *= childScale;
 
-            Vector2 originalDir = direction.normalized;
-            float angle = (Mathf.Atan2(originalDir.y, originalDir.x) - i * 360 / childNum) * Mathf.Deg2Rad;
+            var originalDir = direction.normalized;
+            var angle = (Mathf.Atan2(originalDir.y, originalDir.x) - i * 360 / childNum) * Mathf.Deg2Rad;
             originalDir.x = Mathf.Cos(angle);
             originalDir.y = Mathf.Sin(angle);
             
-            bScript.SetBulletStats(Mathf.Max(10, Mathf.FloorToInt(damage / childNum)), childSpeed + waveCount * 0.125f, 30f, originalDir, spriteRenderer.color, LayerMask.LayerToName(gameObject.layer));
+            b.SetBulletStats(Mathf.Max(10, Mathf.FloorToInt(damage / childNum)), childSpeed + waveCount * 0.125f, 30f, originalDir, spriteRenderer.color, LayerMask.LayerToName(gameObject.layer));
         }
     }
 }

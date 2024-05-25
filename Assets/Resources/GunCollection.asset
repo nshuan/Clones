@@ -15,61 +15,85 @@ MonoBehaviour:
   guns:
   - name: Pistol
     type: 0
+    bullet: {fileID: 4041250127294837180, guid: c04f3590a8f6fca439ed3586369303cd, type: 3}
     id: 0
     baseDamage: 10
     fireRate: 0.8
-    bulletType: 0
     bulletSpeed: 12
-    bulletScale: 1
+    bulletScale: 0.2
     bulletLifeLength: 30
     bulletsEachShot: 1
     spread: 0.08
     automatic: 0
   - name: Shotgun
     type: 1
+    bullet: {fileID: 4041250127294837180, guid: c04f3590a8f6fca439ed3586369303cd, type: 3}
     id: 1
     baseDamage: 10
     fireRate: 0.6
-    bulletType: 0
     bulletSpeed: 10
-    bulletScale: 1.2
+    bulletScale: 0.24
     bulletLifeLength: 30
     bulletsEachShot: 6
     spread: 0.25
     automatic: 0
   - name: SMG
     type: 2
+    bullet: {fileID: 4041250127294837180, guid: c04f3590a8f6fca439ed3586369303cd, type: 3}
     id: 2
     baseDamage: 15
     fireRate: 3
-    bulletType: 0
     bulletSpeed: 15
-    bulletScale: 0.8
+    bulletScale: 0.16
     bulletLifeLength: 30
     bulletsEachShot: 1
     spread: 0.08
     automatic: 1
   - name: Twin SMG
     type: 3
+    bullet: {fileID: 4041250127294837180, guid: c04f3590a8f6fca439ed3586369303cd, type: 3}
     id: 3
     baseDamage: 10
     fireRate: 3
-    bulletType: 0
     bulletSpeed: 15
-    bulletScale: 0.8
+    bulletScale: 0.16
     bulletLifeLength: 30
     bulletsEachShot: 2
     spread: 0.08
     automatic: 1
   - name: Cherry Canon
     type: 4
+    bullet: {fileID: 6721888710264708879, guid: 0c5d9caa6b2d8fc47b3274ecefba9a90, type: 3}
     id: 4
     baseDamage: 30
     fireRate: 0.3
-    bulletType: 1
     bulletSpeed: 12
-    bulletScale: 4
+    bulletScale: 0.8
     bulletLifeLength: 0.6
     bulletsEachShot: 1
     spread: 0.08
+    automatic: 0
+  - name: Cherry Canon 8
+    type: 5
+    bullet: {fileID: 6061318450905996567, guid: 9139ae78b19af8e40828052f10f0443b, type: 3}
+    id: 5
+    baseDamage: 10
+    fireRate: 8
+    bulletSpeed: 0
+    bulletScale: 0.4
+    bulletLifeLength: 0.25
+    bulletsEachShot: 1
+    spread: 0
+    automatic: 0
+  - name: Cherry Canon 16
+    type: 6
+    bullet: {fileID: 6061318450905996567, guid: d7461ad48be3ef94ea066a406f26fc50, type: 3}
+    id: 5
+    baseDamage: 10
+    fireRate: 16
+    bulletSpeed: 0
+    bulletScale: 0.4
+    bulletLifeLength: 0
+    bulletsEachShot: 1
+    spread: 0
     automatic: 0

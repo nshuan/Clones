@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core.ObjectPooling;
 using UnityEngine;
 
 public enum State
@@ -47,7 +48,7 @@ public abstract class CharacterBehavior : MonoBehaviour
     // Character keeps firing as long as isFiring = true.
     // Every gun has cooldown time.
     protected Gun gun;
-    protected GameObject gunBullet;
+    protected BulletBehavior gunBullet;
     protected bool isFiring = false;
     protected float gunCooldown;
     protected float gunCdCounter = 0f;
@@ -283,13 +284,15 @@ public abstract class CharacterBehavior : MonoBehaviour
 
         for (int i = 0; i < gun.GetBulletNum(); i++)
         {
-            GameObject b = Instantiate(gunBullet, transform.position + transform.up * bulletOffset, transform.rotation);
-            BulletBehavior bScript = b.GetComponent<BulletBehavior>();
-            b.transform.localScale *= gun.GetBulletScale();
+            // GameObject b = Instantiate(gunBullet, transform.position + transform.up * bulletOffset, transform.rotation);
+            var bullet = PoolManager.Instance.Get(gunBullet);
+            bullet.transform.position = transform.position + transform.up * bulletOffset;
+            bullet.transform.rotation = transform.rotation;
+            bullet.transform.localScale *= gun.GetBulletScale();
 
             Vector2 originalDir = fireDirection.normalized;
             Vector2 deflection = Vector2.Perpendicular(originalDir) * Random.Range(-gun.GetSpread(), gun.GetSpread());
-            bScript.SetBulletStats(damage + gun.GetBaseDamage(), gun.GetBulletSpeed(), gun.GetBulletLifeLength(), originalDir + deflection, bulletColor - new Color(0f, 0f, 0f, 0.5f), LayerMask.LayerToName(gameObject.layer) + "Bullet");
+            bullet.SetBulletStats(damage + gun.GetBaseDamage(), gun.GetBulletSpeed(), gun.GetBulletLifeLength(), originalDir + deflection, bulletColor - new Color(0f, 0f, 0f, 0.5f), LayerMask.LayerToName(gameObject.layer) + "Bullet");
         }
     }
     #endregion

@@ -14,5 +14,7 @@ public enum GunType
     Shotgun,
     Smg,
     TwinSmg,
-    CherryCanon
+    CherryCanon,
+    Cherry8,
+    Cherry16
 }

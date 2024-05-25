@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core.ObjectPooling;
 using UnityEngine;
 
 public abstract class BulletBehavior : MonoBehaviour
@@ -11,7 +12,6 @@ public abstract class BulletBehavior : MonoBehaviour
 
     #region Avatar
     [SerializeField] protected SpriteRenderer spriteRenderer;
-    [SerializeField] protected TrailRenderer trail;
     [SerializeField] protected ParticleSystem destroyFx;
     #endregion
 
@@ -23,9 +23,9 @@ public abstract class BulletBehavior : MonoBehaviour
     public abstract void BulletHit();
 
     void FixedUpdate()
-    { 
+    {
         if (Vector2.Distance(transform.position, Camera.main.transform.position) > 30f)
-            Destroy(gameObject);
+            DestroyBullet();
         if (lifeCount < lifeLength)
             lifeCount += Time.deltaTime * GameManager.Instance.TimeScale;
         else
@@ -43,17 +43,19 @@ public abstract class BulletBehavior : MonoBehaviour
         this.lifeLength = lifeLength;
 
         spriteRenderer.color = color;
-        if (trail != null)
-        {
-            trail.startColor = color - new Color(0f, 0f, 0f, color.a / 3);
-            trail.endColor = color - new Color(0f, 0f, 0f, 1f);
-        }
-
+        
         gameObject.layer = LayerMask.NameToLayer(layerName);
         if (layerName == "PlayerBullet") 
             obstacleLayer = LayerMask.GetMask("Enemy", "ItemCrystal", "Wall");
         else if (layerName == "EnemyBullet")
             obstacleLayer = LayerMask.GetMask("Player", "Wall");
+        
+        SetupTrail(color);
+    }
+
+    protected virtual void SetupTrail(Color color)
+    {
+        
     }
 
     protected void Move()
@@ -64,7 +66,7 @@ public abstract class BulletBehavior : MonoBehaviour
         //     speedScale = 1.35f;
         // }
 
-        transform.Translate(direction * speed * speedScale * Time.deltaTime * GameManager.Instance.TimeScale, Space.World);
+        transform.Translate(direction * (speed * speedScale * Time.deltaTime * GameManager.Instance.TimeScale), Space.World);
     }
 
     protected void CheckHit()
@@ -81,5 +83,12 @@ public abstract class BulletBehavior : MonoBehaviour
                 
             BulletHit();
         }
+    }
+
+    protected virtual void DestroyBullet()
+    {
+        lifeCount = 0f;
+        transform.localScale = Vector3.one;
+        PoolManager.Instance.Release(this);
     }
 }

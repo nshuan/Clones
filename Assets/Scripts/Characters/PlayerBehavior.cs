@@ -32,7 +32,7 @@ public class PlayerBehavior : CharacterBehavior
         inventory = GetComponent<Inventory>();
 
         gun = GunManager.Instance.GetGun(inventory.GetCurrentGunId());
-        gunBullet = BulletCollection.Instance.GetBullet(gun.GetBulletType());
+        gunBullet = gun.GetBullet();
         bulletColor = spriteRenderer.color;
         UIManager.Instance.UpdateGunName(gun.GetName());
 
@@ -70,7 +70,7 @@ public class PlayerBehavior : CharacterBehavior
     {
         // Setup stats
         maxHealth = charInfo.MaxHealth;
-        damage = charInfo.Health;
+        damage = charInfo.Damage;
         speed = charInfo.Speed;
         
         // Setup visual
@@ -162,7 +162,7 @@ public class PlayerBehavior : CharacterBehavior
     public void UpdateGun()
     {
         gun = GunManager.Instance.GetGun(inventory.GetCurrentGunId());
-        gunBullet = BulletCollection.Instance.GetBullet(gun.GetBulletType());
+        gunBullet = gun.GetBullet();
         UIManager.Instance.UpdateGunName(gun.GetName());
     }
 

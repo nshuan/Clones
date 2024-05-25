@@ -88,7 +88,7 @@ public class EnemyBehavior : CharacterBehavior
 
         if (gun != null)
         {
-            gunBullet = BulletCollection.Instance.GetBullet(gun.GetBulletType());
+            gunBullet = gun.GetBullet();
             gunCooldown = 1 / gun.GetFireRate();
         }
 

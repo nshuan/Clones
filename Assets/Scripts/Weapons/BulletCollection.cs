@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class BulletCollection : MonoSingleton<BulletCollection>
 {
-    [SerializeField] private List<GameObject> bullets = new List<GameObject>();
+    [SerializeField] private List<BulletBehavior> bullet = new List<BulletBehavior>();
 
-    public GameObject GetBullet(int index)
+    public BulletBehavior GetBullet(int index)
     {
-        return bullets[Mathf.Min(index, bullets.Count - 1)];
+        return bullet[Mathf.Min(index, bullet.Count - 1)];
     }
 }

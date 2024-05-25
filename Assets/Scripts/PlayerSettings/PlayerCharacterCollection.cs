@@ -45,7 +45,7 @@ namespace Scripts.PlayerSettings
             charactersStatus = new Dictionary<int, bool>();
             foreach (var character in characters)
             {
-                charactersStatus[character.Id] = character.UnlockByDefault;
+                charactersStatus[character.Id] = false;
             }
         }
         

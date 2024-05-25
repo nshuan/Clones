@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
+using Managers;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
-    public static GameManager Instance { get; set; }
     public Transform player;
     [HideInInspector] public PlayerBehavior playerScript;
 
@@ -19,9 +20,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
         playerScript = player.GetComponent<PlayerBehavior>();
     }
 
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
     {
         timeScale = 0.05f;
         PlayerData.UpdateSurvivedTime(UIManager.Instance.StopTimer());
-
+        CoinManager.CurrentCoin += PlayerData.Coin;
         UIManager.Instance.GameOver();
     }
     #endregion

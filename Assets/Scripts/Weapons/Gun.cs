@@ -7,39 +7,24 @@ public class Gun
 {
     [SerializeField] private string name;
     [SerializeField] private GunType type;
+    [SerializeField] private BulletBehavior bullet;
     [SerializeField] private int id;
     [SerializeField] private int baseDamage;
     [SerializeField] private float fireRate;
-    [SerializeField] private int bulletType;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float bulletScale;
     [SerializeField] private float bulletLifeLength;
     [SerializeField] private int bulletsEachShot;
     [SerializeField] private float spread;
     [SerializeField] private bool automatic;
-    
-    public Gun(GunType type, int id, int baseDamage, float fireRate, int bulletType, float bulletSpeed, float bulletScale, float bulletLifeLength, int bulletEachShot, float spread)
-    {
-        this.type = type;
-        this.id = id;
-        this.baseDamage = baseDamage;
-        this.fireRate = fireRate;
-        this.bulletType = bulletType;
-        this.bulletSpeed = bulletSpeed;
-        this.bulletScale = bulletScale;
-        this.bulletLifeLength = bulletLifeLength;
-        this.bulletsEachShot = bulletEachShot;
-        this.spread = spread;
-        this.automatic = false;
-    }
 
+    
     public Gun(GunType type, int id, int baseDamage, float fireRate, int bulletType, float bulletSpeed, float bulletScale, float bulletLifeLength, int bulletEachShot, float spread, bool automatic)
     {
         this.type = type;
         this.id = id;
         this.baseDamage = baseDamage;
         this.fireRate = fireRate;
-        this.bulletType = bulletType;
         this.bulletSpeed = bulletSpeed;
         this.bulletScale = bulletScale;
         this.bulletLifeLength = bulletLifeLength;
@@ -47,7 +32,7 @@ public class Gun
         this.spread = spread;
         this.automatic = automatic;
     }
-
+    
     public string GetName()
     {
         return type.ToString().ToLower();
@@ -73,9 +58,9 @@ public class Gun
         return fireRate;
     }
 
-    public int GetBulletType()
+    public BulletBehavior GetBullet()
     {
-        return bulletType;
+        return bullet;
     }
 
     public float GetBulletSpeed()
