@@ -14,6 +14,7 @@ namespace Scripts.Home.SelectCharacter
         [SerializeField] private UnlockCharacterButton unlockButton;
         
         [SerializeField] private Image bigImage;
+        [SerializeField] private CharacterDataPreview dataPreview;
 
         private PlayerCharacterSO _characterData;
 
@@ -62,7 +63,7 @@ namespace Scripts.Home.SelectCharacter
 
         private void SetupInfos()
         {
-            
+            dataPreview.Setup(_characterData);
         }
     }
 }
