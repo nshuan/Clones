@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Inventory : MonoBehaviour
+public class Inventory
 {
     private int maxSlot = 2;
 
@@ -13,17 +13,12 @@ public class Inventory : MonoBehaviour
     private int[] gunSlots;
     private int currentGunSlot = 0;
 
-
-    void Awake()
+    public Inventory(Gun defaultGun)
     {
         gunSlots = new int[maxSlot];
 
-        gunSlots[0] = Random.Range(0, 5);
+        gunSlots[0] = defaultGun.GetId();
         gunSlots[1] = gunSlots[0];
-        while (gunSlots[1] == gunSlots[0])
-        {
-            gunSlots[1] = Random.Range(0, 5);
-        }
     }
 
     public int GetMaxSlot()

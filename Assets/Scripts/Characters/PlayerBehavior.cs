@@ -14,6 +14,7 @@ using UnityEngine;
 public class PlayerBehavior : CharacterBehavior
 {
     [HideInInspector] public Inventory inventory;
+    private PlayerCharacterSO _charData;
 
     protected override void Awake()
     {
@@ -29,16 +30,15 @@ public class PlayerBehavior : CharacterBehavior
     
     void Start()
     {
-        inventory = GetComponent<Inventory>();
-
-        gun = GunManager.Instance.GetGun(inventory.GetCurrentGunId());
+        SetupCharacter(PlayerManager.Instance.CurrentCharacter);
+        
+        gun = GunManager.Instance.GetGun(_charData.DefaultGun);
+        inventory = new Inventory(gun);
         gunBullet = gun.GetBullet();
         bulletColor = spriteRenderer.color;
         UIManager.Instance.UpdateGunName(gun.GetName());
 
         timeScaleResistant = 1f;
-        
-        SetupCharacter(PlayerManager.Instance.CurrentCharacter);
     }
 
     void Update()
@@ -68,6 +68,8 @@ public class PlayerBehavior : CharacterBehavior
     
     public void SetupCharacter(PlayerCharacterSO charInfo)
     {
+        _charData = charInfo;
+        
         // Setup stats
         maxHealth = charInfo.MaxHealth;
         damage = charInfo.Damage;

@@ -36,12 +36,8 @@ namespace Scripts.Home.SelectCharacter
             bigImage.sprite = _characterData.AvatarSprite;
             bigImage.color = _characterData.Color;
             
-            // Setup buttons
-            var unlocked = PlayerManager.Instance.GetCharacterStatus(_characterData.Id);
-            selectButton.gameObject.SetActive(unlocked);
-            selectButton.Setup(characterData);
-            unlockButton.gameObject.SetActive(!unlocked);
-            unlockButton.Setup(characterData);
+            SetupButton();
+            SetupInfos();
         }
 
         private void OnChangeCharacter(int id)
@@ -53,6 +49,20 @@ namespace Scripts.Home.SelectCharacter
         {
             selectButton.gameObject.SetActive(true);
             unlockButton.gameObject.SetActive(false);
+        }
+
+        private void SetupButton()
+        {
+            var unlocked = PlayerManager.Instance.GetCharacterStatus(_characterData.Id);
+            selectButton.gameObject.SetActive(unlocked);
+            selectButton.Setup(_characterData);
+            unlockButton.gameObject.SetActive(!unlocked);
+            unlockButton.Setup(_characterData);
+        }
+
+        private void SetupInfos()
+        {
+            
         }
     }
 }
