@@ -11,6 +11,7 @@ namespace Scripts.PlayerSettings
     public class PlayerCharacterCollection : ScriptableObject
     {
         private const string CharacterUnlockStatusKey = "CharacterUnlockStatusKey";
+        private const string CharactersCollectionPath = "PlayerCharacters";
         
         [SerializeField] private List<PlayerCharacterSO> characters = new List<PlayerCharacterSO>();
 
@@ -32,6 +33,13 @@ namespace Scripts.PlayerSettings
             var newStatus = CharactersStatus;
             newStatus.UpdateStatus(id, status);
             DataHandler.Save<CharacterUnlockStatus>(CharacterUnlockStatusKey, newStatus);
+        }
+
+        [ContextMenu("Load Characters Data")]
+        private void LoadCharactersData()
+        {
+            var charactersAsset = Resources.LoadAll<PlayerCharacterSO>(CharactersCollectionPath);
+            characters = charactersAsset.ToList();
         }
     }
 

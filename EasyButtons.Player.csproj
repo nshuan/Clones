@@ -12,11 +12,11 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8eef01c3-3f36-c924-5992-9923c8e32cb0}</ProjectGuid>
+    <ProjectGuid>{b34162e8-0ab2-2134-31cf-b47e96e445c0}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>EasyButtons</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -25,7 +25,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Temp\Bin\Debug\Assembly-CSharp\Player\</OutputPath>
+    <OutputPath>Temp\Bin\Debug\EasyButtons\Player\</OutputPath>
     <DefineConstants>UNITY_2021_3_17;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,84 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Core\InfiniteListView\IInfiniteListView.cs" />
-     <Compile Include="Assets\Scripts\UI\ChooseItem.cs" />
-     <Compile Include="Assets\Scripts\Environment\HiveGround.cs" />
-     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
-     <Compile Include="Assets\Scripts\Environment\HiveBehavior.cs" />
-     <Compile Include="Assets\Scripts\Weapons\Gun.cs" />
-     <Compile Include="Assets\Scripts\Weapons\Bullets\BulletStandard.cs" />
-     <Compile Include="Assets\Core\EndlessScroll\Descending.cs" />
-     <Compile Include="Assets\Core\ObjectPooling\PoolManager.cs" />
-     <Compile Include="Assets\Scripts\Characters\BossCollection.cs" />
-     <Compile Include="Assets\Scripts\PlayerSettings\PlayerCharacterCollection.cs" />
-     <Compile Include="Assets\Scripts\Objects\ItemCollection.cs" />
-     <Compile Include="Assets\Scripts\Character\Interfaces\IMovable.cs" />
-     <Compile Include="Assets\Core\Popup\PopupPresenter.cs" />
-     <Compile Include="Assets\Core\MonoSingleton.cs" />
-     <Compile Include="Assets\Scripts\Weapons\BulletBehavior.cs" />
-     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Characters\EnemyCollection.cs" />
-     <Compile Include="Assets\Scripts\Characters\CharacterBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterMoveState.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterDashState.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterIdleState.cs" />
-     <Compile Include="Assets\Core\EndlessScroll\CellCreator.cs" />
-     <Compile Include="Assets\Scripts\PlayerSettings\PlayerCharacterSO.cs" />
-     <Compile Include="Assets\Scripts\Weapons\GunCollection.cs" />
-     <Compile Include="Assets\Scripts\Managers\GunManager.cs" />
-     <Compile Include="Assets\Core\EndlessScroll\SimpleListView.cs" />
-     <Compile Include="Assets\Scripts\Weapons\Bullets\BulletGoodBlossom.cs" />
-     <Compile Include="Assets\Core\InfiniteListView\ISetupElement.cs" />
-     <Compile Include="Assets\Scripts\UI\ChooseGunSlot.cs" />
-     <Compile Include="Assets\Scripts\Objects\ItemCrystal.cs" />
-     <Compile Include="Assets\Scripts\General\ClosePopupButton.cs" />
-     <Compile Include="Assets\Scripts\Home\Buttons\HomeMenuButton.cs" />
-     <Compile Include="Assets\Scripts\Home\SelectCharacter\CharacterPreview.cs" />
-     <Compile Include="Assets\Core\InfiniteListView\IElementInfo.cs" />
-     <Compile Include="Assets\Scripts\Characters\Inventory.cs" />
-     <Compile Include="Assets\Core\EndlessScroll\Ascending.cs" />
-     <Compile Include="Assets\Scripts\Managers\CoinManager.cs" />
-     <Compile Include="Assets\Scripts\UI\FloatText.cs" />
-     <Compile Include="Assets\Scripts\Characters\EnemyBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\Base\Character.cs" />
-     <Compile Include="Assets\Scripts\Characters\Bosses\TheDot.cs" />
-     <Compile Include="Assets\Scripts\Managers\PlayerInputActionManager.cs" />
-     <Compile Include="Assets\Core\InfiniteListView\ListViewElement.cs" />
-     <Compile Include="Assets\Scripts\Home\Coin\CoinPreview.cs" />
-     <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterAttackState.cs" />
-     <Compile Include="Assets\Core\Popup\IShowPopup.cs" />
-     <Compile Include="Assets\Scripts\Home\SelectCharacter\CharacterPreviewElement.cs" />
-     <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
-     <Compile Include="Assets\Scripts\Character\Player.cs" />
-     <Compile Include="Assets\Scripts\Home\SelectCharacter\SelectCharacterButton.cs" />
-     <Compile Include="Assets\Scripts\Home\SelectCharacter\CharactersListView.cs" />
-     <Compile Include="Assets\Scripts\Objects\Items\ItemGun.cs" />
-     <Compile Include="Assets\Scripts\Characters\Bosses\TheClone.cs" />
-     <Compile Include="Assets\Core\EndlessScroll\Vertical.cs" />
-     <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
-     <Compile Include="Assets\Core\EndlessScroll\Horizontal.cs" />
-     <Compile Include="Assets\Scripts\UI\MenuButtons.cs" />
-     <Compile Include="Assets\Scripts\Characters\CharacterMovement.cs" />
-     <Compile Include="Assets\Scripts\Objects\Items\ItemCoin.cs" />
-     <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
-     <Compile Include="Assets\Scripts\Characters\ICharacterBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\Interfaces\IDamageable.cs" />
-     <Compile Include="Assets\Scripts\Home\SelectCharacter\UnlockCharacterButton.cs" />
-     <Compile Include="Assets\Scripts\Managers\FxManager.cs" />
-     <Compile Include="Assets\Scripts\Objects\Items\ItemHealth.cs" />
-     <Compile Include="Assets\Scripts\Characters\PlayerBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\CharacterState.cs" />
-     <Compile Include="Assets\Scripts\Weapons\BulletCollection.cs" />
-     <Compile Include="Assets\Core\DataHandle\DataHandler.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\CharacterStateMachine.cs" />
-     <Compile Include="Assets\Scripts\Managers\Navigator.cs" />
-     <Compile Include="Assets\Scripts\PlayerSettings\PlayerManager.cs" />
-     <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
-     <Compile Include="Assets\Scripts\Environment\GroundBehavior.cs" />
-     <Compile Include="Assets\Scripts\Weapons\Bullets\BulletBlossom.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterMoveRbState.cs" />
+     <Compile Include="Library\PackageCache\com.madsbangh.easybuttons@73d2383899\Runtime\ButtonAttribute.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.17f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.dll</HintPath>
      </Reference>
@@ -694,109 +617,9 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.InternalAPIEngineBridge.001.Player.csproj">
-      <Project>{a5ff1f08-6f6d-bb78-4215-c8eeac399019}</Project>
-      <Name>Unity.InternalAPIEngineBridge.001.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.PixelPerfect.Player.csproj">
-      <Project>{111d1872-90bd-98c7-e2a0-007e5f0389b6}</Project>
-      <Name>Unity.2D.PixelPerfect.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.Player.csproj">
-      <Project>{bb4cf79c-5213-4776-ebce-b962944ee55c}</Project>
-      <Name>Unity.RenderPipelines.Universal.Shaders.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.InputSystem.Player.csproj">
-      <Project>{975910c7-ea1b-f932-084b-7191afe0d460}</Project>
-      <Name>Unity.InputSystem.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.Player.csproj">
-      <Project>{4bd1b8d6-3f82-20f8-c0a5-a5fbe7fd8120}</Project>
-      <Name>Unity.RenderPipelines.Core.ShaderLibrary.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
       <Project>{686b36a8-994f-2110-34f6-8ecfe573bfd0}</Project>
       <Name>UnityEngine.UI.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.IK.Runtime.Player.csproj">
-      <Project>{c6f15541-5378-a781-d965-93a308f3edc1}</Project>
-      <Name>Unity.2D.IK.Runtime.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.Player.csproj">
-      <Project>{5893331d-0166-313d-3dbb-c53e7bb3479a}</Project>
-      <Name>Unity.RenderPipeline.Universal.ShaderLibrary.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Tilemap.Extras.Player.csproj">
-      <Project>{5e6728ee-fda9-ed8e-a20a-717adfae4677}</Project>
-      <Name>Unity.2D.Tilemap.Extras.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.Player.csproj">
-      <Project>{62cd06d5-e578-585f-a7c2-557e2d5f9d22}</Project>
-      <Name>Unity.RenderPipelines.Universal.Runtime.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Timeline.Player.csproj">
-      <Project>{c3d78b20-7ef1-43e5-6fb6-816e13519ceb}</Project>
-      <Name>Unity.Timeline.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.Player.csproj">
-      <Project>{888fbdbe-87cf-13a3-2220-bf20db970fc2}</Project>
-      <Name>Unity.TextMeshPro.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.Player.csproj">
-      <Project>{f08841cc-7547-f481-7d9d-e8c6a2eefef2}</Project>
-      <Name>Unity.RenderPipelines.Core.Runtime.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.Flow.Player.csproj">
-      <Project>{72edf49e-74c1-956f-8ebd-a137e666bcc3}</Project>
-      <Name>Unity.VisualScripting.Flow.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Services.Core.Player.csproj">
-      <Project>{d426f36d-a90a-3d91-ffb2-8270850cf057}</Project>
-      <Name>Unity.Services.Core.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.Core.Player.csproj">
-      <Project>{0b4a0bf3-f6dd-04a9-5ed0-c07e1303e6df}</Project>
-      <Name>Unity.VisualScripting.Core.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Mathematics.Player.csproj">
-      <Project>{3f014252-a474-8ca8-1f7f-e3882d0efe7e}</Project>
-      <Name>Unity.Mathematics.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Services.Core.Analytics.Player.csproj">
-      <Project>{0bb3cf91-1edf-c3f6-3114-cdd1e14506d4}</Project>
-      <Name>Unity.Services.Core.Analytics.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Burst.Player.csproj">
-      <Project>{30a4013a-f1e9-1b91-8a71-d10b5eae68b1}</Project>
-      <Name>Unity.Burst.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Services.Core.Environments.Player.csproj">
-      <Project>{cdac4e31-adac-9d78-d7eb-d525519d3a06}</Project>
-      <Name>Unity.Services.Core.Environments.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Animation.Runtime.Player.csproj">
-      <Project>{423cd613-12f1-50c4-b802-7c6d31d65d4c}</Project>
-      <Name>Unity.2D.Animation.Runtime.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.Player.csproj">
-      <Project>{494e9f00-f134-633f-3d2c-497a99c2ba07}</Project>
-      <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Common.Runtime.Player.csproj">
-      <Project>{4a50a18f-bc51-30a9-9ee0-a7a1b9545e7e}</Project>
-      <Name>Unity.2D.Common.Runtime.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.SpriteShape.Runtime.Player.csproj">
-      <Project>{a1a93afa-5e4b-18f2-d016-37697ae6d431}</Project>
-      <Name>Unity.2D.SpriteShape.Runtime.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.State.Player.csproj">
-      <Project>{1ae70115-7a70-f8ab-6f22-edc39ab51f08}</Project>
-      <Name>Unity.VisualScripting.State.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="EasyButtons.Player.csproj">
-      <Project>{b34162e8-0ab2-2134-31cf-b47e96e445c0}</Project>
-      <Name>EasyButtons.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

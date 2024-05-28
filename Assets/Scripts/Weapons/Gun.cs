@@ -48,6 +48,11 @@ public class Gun
         return id;
     }
 
+    public void SetId(int value)
+    {
+        id = value;
+    }
+
     public int GetBaseDamage()
     {
         return baseDamage;

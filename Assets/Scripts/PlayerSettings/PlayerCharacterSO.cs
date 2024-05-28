@@ -12,6 +12,7 @@ namespace Scripts.PlayerSettings
         [field: SerializeField] public int MaxHealth { get; private set; } = 100;
         [field: SerializeField] public int Damage { get; private set; } = 2;
         [field: SerializeField] public float Speed { get; private set; } = 10;
+        [field: SerializeField] public GunType DefaultGun { get; private set; }
         
         [field: Header("Visual")]
         [field: SerializeField] public Sprite AvatarSprite { get; private set; }
