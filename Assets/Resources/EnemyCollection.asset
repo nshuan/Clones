@@ -13,53 +13,53 @@ MonoBehaviour:
   m_Name: EnemyCollection
   m_EditorClassIdentifier: 
   enemyTypes:
-  - name: Normie
-    type: 0
-    maxHealth: 60
-    baseDamage: 1
-    speed: 2
-    attackRange: 10
-    sizeScale: 1
-    color: {r: 1, g: 1, b: 1, a: 1}
-    hasGun: 1
-    gunType: 0
-  - name: Runner
-    type: 1
-    maxHealth: 50
-    baseDamage: 1
-    speed: 6
-    attackRange: 0
-    sizeScale: 0.8
-    color: {r: 1, g: 1, b: 0, a: 1}
-    hasGun: 0
-    gunType: 0
-  - name: Hunter
-    type: 2
-    maxHealth: 80
-    baseDamage: 1
-    speed: 4
-    attackRange: 8
-    sizeScale: 1.2
-    color: {r: 1, g: 0, b: 0, a: 1}
-    hasGun: 1
-    gunType: 1
-  - name: Soldier
-    type: 3
-    maxHealth: 80
-    baseDamage: 1
-    speed: 4
-    attackRange: 12
-    sizeScale: 1.2
-    color: {r: 0, g: 1, b: 1, a: 1}
-    hasGun: 1
-    gunType: 2
-  - name: Tanker
-    type: 4
-    maxHealth: 140
-    baseDamage: 4
-    speed: 2
-    attackRange: 7
-    sizeScale: 1.6
-    color: {r: 0, g: 1, b: 0, a: 1}
-    hasGun: 1
-    gunType: 4
+  - <Name>k__BackingField: Normie
+    <EnemyType>k__BackingField: 0
+    <MaxHealth>k__BackingField: 60
+    <BaseDamage>k__BackingField: 1
+    <Speed>k__BackingField: 2
+    <AttackRange>k__BackingField: 10
+    <SizeScale>k__BackingField: 1
+    <VisualColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+    <HasGun>k__BackingField: 1
+    <GunType>k__BackingField: 0
+  - <Name>k__BackingField: Runner
+    <EnemyType>k__BackingField: 1
+    <MaxHealth>k__BackingField: 50
+    <BaseDamage>k__BackingField: 1
+    <Speed>k__BackingField: 6
+    <AttackRange>k__BackingField: 0
+    <SizeScale>k__BackingField: 0.8
+    <VisualColor>k__BackingField: {r: 1, g: 1, b: 0, a: 1}
+    <HasGun>k__BackingField: 0
+    <GunType>k__BackingField: 0
+  - <Name>k__BackingField: Hunter
+    <EnemyType>k__BackingField: 2
+    <MaxHealth>k__BackingField: 80
+    <BaseDamage>k__BackingField: 1
+    <Speed>k__BackingField: 4
+    <AttackRange>k__BackingField: 8
+    <SizeScale>k__BackingField: 1.2
+    <VisualColor>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    <HasGun>k__BackingField: 1
+    <GunType>k__BackingField: 1
+  - <Name>k__BackingField: Soldier
+    <EnemyType>k__BackingField: 3
+    <MaxHealth>k__BackingField: 80
+    <BaseDamage>k__BackingField: 1
+    <Speed>k__BackingField: 4
+    <AttackRange>k__BackingField: 12
+    <SizeScale>k__BackingField: 1.2
+    <VisualColor>k__BackingField: {r: 0, g: 1, b: 1, a: 1}
+    <HasGun>k__BackingField: 1
+    <GunType>k__BackingField: 2
+  - <Name>k__BackingField: Tanker
+    <EnemyType>k__BackingField: 4
+    <MaxHealth>k__BackingField: 140
+    <BaseDamage>k__BackingField: 4
+    <Speed>k__BackingField: 2
+    <AttackRange>k__BackingField: 7
+    <SizeScale>k__BackingField: 1.6
+    <VisualColor>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    <HasGun>k__BackingField: 1
+    <GunType>k__BackingField: 4

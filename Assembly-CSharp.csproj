@@ -43,28 +43,31 @@
   <ItemGroup>
      <Compile Include="Assets\Core\InfiniteListView\IInfiniteListView.cs" />
      <Compile Include="Assets\Scripts\UI\ChooseItem.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyStates\EnemyBounceState.cs" />
      <Compile Include="Assets\Scripts\Environment\HiveGround.cs" />
      <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
+     <Compile Include="Assets\Scripts\Home\Collections\EnemyCollection\EnemyPreviewElement.cs" />
      <Compile Include="Assets\Scripts\Environment\HiveBehavior.cs" />
      <Compile Include="Assets\Scripts\Weapons\Gun.cs" />
      <Compile Include="Assets\Scripts\Weapons\Bullets\BulletStandard.cs" />
      <Compile Include="Assets\Core\EndlessScroll\Descending.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Behavior Logic\Idle\EnemyIdleSOBase.cs" />
      <Compile Include="Assets\Core\ObjectPooling\PoolManager.cs" />
      <Compile Include="Assets\Scripts\Characters\BossCollection.cs" />
      <Compile Include="Assets\Scripts\PlayerSettings\PlayerCharacterCollection.cs" />
      <Compile Include="Assets\Scripts\Objects\ItemCollection.cs" />
-     <Compile Include="Assets\Scripts\Character\Interfaces\IMovable.cs" />
+     <Compile Include="Assets\Core\CustomAttributes\ReadOnly\ReadOnlyDrawer.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Interfaces\IMovable.cs" />
      <Compile Include="Assets\Core\Popup\PopupPresenter.cs" />
      <Compile Include="Assets\Core\MonoSingleton.cs" />
      <Compile Include="Assets\Scripts\Weapons\BulletBehavior.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Characters\EnemyCollection.cs" />
      <Compile Include="Assets\Scripts\Characters\CharacterBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterMoveState.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterDashState.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterIdleState.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Behavior Logic\Attack\EnemyAttackSOBase.cs" />
      <Compile Include="Assets\Core\EndlessScroll\CellCreator.cs" />
      <Compile Include="Assets\Scripts\PlayerSettings\PlayerCharacterSO.cs" />
+     <Compile Include="Assets\Scripts\Home\SelectCharacter\CharacterDataPreview.cs" />
      <Compile Include="Assets\Scripts\Weapons\GunCollection.cs" />
      <Compile Include="Assets\Scripts\Managers\GunManager.cs" />
      <Compile Include="Assets\Core\EndlessScroll\SimpleListView.cs" />
@@ -72,6 +75,7 @@
      <Compile Include="Assets\Core\InfiniteListView\ISetupElement.cs" />
      <Compile Include="Assets\Scripts\UI\ChooseGunSlot.cs" />
      <Compile Include="Assets\Scripts\Objects\ItemCrystal.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Trigger Checks\EnemyAggroCheck.cs" />
      <Compile Include="Assets\Scripts\General\ClosePopupButton.cs" />
      <Compile Include="Assets\Scripts\Home\Buttons\HomeMenuButton.cs" />
      <Compile Include="Assets\Scripts\Home\SelectCharacter\CharacterPreview.cs" />
@@ -79,46 +83,59 @@
      <Compile Include="Assets\Scripts\Characters\Inventory.cs" />
      <Compile Include="Assets\Core\EndlessScroll\Ascending.cs" />
      <Compile Include="Assets\Scripts\Managers\CoinManager.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Behavior Logic\Chase\EnemyChaseSOBase.cs" />
      <Compile Include="Assets\Scripts\UI\FloatText.cs" />
      <Compile Include="Assets\Scripts\Characters\EnemyBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\Base\Character.cs" />
+     <Compile Include="Assets\Scripts\Home\Collections\EnemyCollection\EnemyPreview.cs" />
+     <Compile Include="Assets\Scripts\Home\Collections\CollectionItemPreview.cs" />
      <Compile Include="Assets\Scripts\Characters\Bosses\TheDot.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyStates\EnemyIdleState.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerInputActionManager.cs" />
      <Compile Include="Assets\Core\InfiniteListView\ListViewElement.cs" />
      <Compile Include="Assets\Scripts\Home\Coin\CoinPreview.cs" />
+     <Compile Include="Assets\Scripts\Home\Collections\EnemyCollection\EnemiesListView.cs" />
      <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterAttackState.cs" />
      <Compile Include="Assets\Core\Popup\IShowPopup.cs" />
      <Compile Include="Assets\Scripts\Home\SelectCharacter\CharacterPreviewElement.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyStates\EnemyChaseState.cs" />
      <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
-     <Compile Include="Assets\Scripts\Character\Player.cs" />
      <Compile Include="Assets\Scripts\Home\SelectCharacter\SelectCharacterButton.cs" />
      <Compile Include="Assets\Scripts\Home\SelectCharacter\CharactersListView.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Behavior Logic\Attack\EnemyAttackGunner.cs" />
      <Compile Include="Assets\Scripts\Objects\Items\ItemGun.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Enemy.cs" />
      <Compile Include="Assets\Scripts\Characters\Bosses\TheClone.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Behavior Logic\Chase\EnemyChaseDirectToPlayer.cs" />
      <Compile Include="Assets\Core\EndlessScroll\Vertical.cs" />
      <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
      <Compile Include="Assets\Core\EndlessScroll\Horizontal.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyStates\EnemyAttackState.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Trigger Checks\EnemyStrikingDistanceCheck.cs" />
      <Compile Include="Assets\Scripts\UI\MenuButtons.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Trigger Checks\EnemyHitCheck.cs" />
      <Compile Include="Assets\Scripts\Characters\CharacterMovement.cs" />
      <Compile Include="Assets\Scripts\Objects\Items\ItemCoin.cs" />
+     <Compile Include="Assets\Core\CustomAttributes\ReadOnly\ReadOnlyAttribute.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
      <Compile Include="Assets\Scripts\Characters\ICharacterBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\Interfaces\IDamageable.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Interfaces\IDamageable.cs" />
+     <Compile Include="Assets\Scripts\Home\Collections\CollectionElement.cs" />
      <Compile Include="Assets\Scripts\Home\SelectCharacter\UnlockCharacterButton.cs" />
      <Compile Include="Assets\Scripts\Managers\FxManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Items\ItemHealth.cs" />
      <Compile Include="Assets\Scripts\Characters\PlayerBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\CharacterState.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyState.cs" />
      <Compile Include="Assets\Scripts\Weapons\BulletCollection.cs" />
      <Compile Include="Assets\Core\DataHandle\DataHandler.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\CharacterStateMachine.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Interfaces\ITriggerCheckable.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyStateMachine.cs" />
+     <Compile Include="Assets\Scripts\PhysicalObjectBehavior.cs" />
      <Compile Include="Assets\Scripts\Managers\Navigator.cs" />
      <Compile Include="Assets\Scripts\PlayerSettings\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
      <Compile Include="Assets\Scripts\Environment\GroundBehavior.cs" />
      <Compile Include="Assets\Scripts\Weapons\Bullets\BulletBlossom.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterMoveRbState.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\EnemyData\EnemyStats.cs" />
      <Folder Include="Assets" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\mergetool.ja.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\images.zh-Hans.txt" />
@@ -129,7 +146,7 @@
      <None Include="Library\PackageCache\com.unity.modules.jsonserialize@1.0.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.test-framework@1.1.31" />
      <Folder Include="Library\PackageCache\com.unity.searcher@4.9.1" />
-     <Folder Include="Assets\Scripts\Character" />
+     <Folder Include="Assets\Scripts\EnemyCore" />
      <None Include="Library\PackageCache\com.unity.modules.screencapture@1.0.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.9\Tests" />
      <None Include="Library\PackageCache\com.unity.modules.cloth@1.0.0\package.json" />
@@ -181,6 +198,7 @@
      <Folder Include="Assets\MyResources\Fonts" />
      <Folder Include="Assets\Scripts\PlayerSettings" />
      <None Include="Library\PackageCache\com.unity.modules.tilemap@1.0.0\package.json" />
+     <Folder Include="Assets\Resources\EnemyBehaviorLogic\IdleLogic" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\xdiff.ja.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\configurehelper.es.txt" />
      <Folder Include="Assets\Scripts\Weapons\Bullets" />
@@ -197,10 +215,12 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\configurehelper.en.txt" />
      <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0" />
+     <Folder Include="Assets\Resources\EnemyBehaviorLogic\AttackLogic" />
      <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.17\ValidationConfig.json" />
      <Folder Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\net35" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\basecommands.zh-Hant.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <Folder Include="Assets\Scripts\Home\Collections\EnemyCollection" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\cm-help.es.txt" />
      <None Include="Library\PackageCache\com.unity.modules.terrainphysics@1.0.0\package.json" />
      <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\package.json" />
@@ -262,7 +282,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\commontypes.en.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\commontypes.es.txt" />
      <Folder Include="Assets\TextMesh Pro" />
-     <Folder Include="Assets\Scripts\Character\Trigger Checks" />
+     <Folder Include="Assets\Scripts\EnemyCore\Trigger Checks" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\images.zh-Hant.txt" />
      <None Include="Library\PackageCache\com.unity.modules.unityanalytics@1.0.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.modules.subsystems@1.0.0" />
@@ -280,6 +300,7 @@
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\basecommands.en.txt" />
      <Folder Include="Library\PackageCache\com.unity.modules.vr@1.0.0" />
+     <Folder Include="Assets\Scripts\EnemyCore\Behavior Logic\Idle" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\images.ko.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\workspaceserver.es.txt" />
      <Folder Include="Library\PackageCache\com.unity.modules.physics2d@1.0.0" />
@@ -335,11 +356,12 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\cm.ko.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\guihelp.zh-Hans.txt" />
      <Folder Include="Library\PackageCache\com.unity.modules.ui@1.0.0" />
+     <Folder Include="Assets\Scripts\EnemyCore\Behavior Logic" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <Folder Include="Library\PackageCache\com.unity.services.core@1.7.0\Runtime" />
      <Folder Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.9\Textures" />
      <Folder Include="Library\PackageCache\com.unity.mathematics@1.2.6" />
-     <Folder Include="Assets\Scripts\Character\Interfaces" />
+     <Folder Include="Assets\Scripts\EnemyCore\Interfaces" />
      <Folder Include="Library\PackageCache\com.unity.2d.psdimporter@6.0.7" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\FileSystemWatcherLicense.txt" />
      <None Include="Library\PackageCache\com.unity.2d.path@5.0.2\package.json" />
@@ -347,6 +369,7 @@
      <None Include="Library\PackageCache\com.unity.2d.tilemap.extras@2.2.4\package.json" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Library\PackageCache\com.unity.inputsystem@1.4.4\ValidationExceptions.json" />
+     <Folder Include="Assets\Resources\EnemyBehaviorLogic" />
      <Folder Include="Assets\TextMesh Pro\Shaders" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Gizmos" />
      <None Include="Library\PackageCache\com.unity.modules.audio@1.0.0\package.json" />
@@ -358,13 +381,13 @@
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@1.17.7" />
      <Folder Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.9\Textures\2D" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\binmergetool.zh-Hans.txt" />
+     <Folder Include="Assets\Resources\EnemyBehaviorLogic\ChaseLogic" />
      <None Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.9\ValidationExceptions.json" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\i3.es.txt" />
      <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\mergetool.zh-Hans.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\commontypes.zh-Hant.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\differences.ko.txt" />
-     <Folder Include="Assets\Scripts\Character\State Machine\States" />
      <Folder Include="Assets\TextMesh Pro\Fonts" />
      <None Include="Library\PackageCache\com.unity.modules.vehicles@1.0.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor" />
@@ -372,7 +395,8 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\plastic-gui.es.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\images.en.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\binmergetool.ja.txt" />
-     <Folder Include="Assets\Scripts\Character\State Machine" />
+     <Folder Include="Assets\Core\CustomAttributes" />
+     <Folder Include="Assets\Scripts\EnemyCore\State Machine" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6" />
      <None Include="Library\PackageCache\com.unity.modules.uielementsnative@1.0.0\package.json" />
      <Folder Include="Assets\Scripts\Environment" />
@@ -392,8 +416,10 @@
      <Folder Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.9\Textures\BlueNoise16" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\ValidationConfig.json" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\images.ja.txt" />
+     <Folder Include="Assets\Scripts\EnemyCore\Behavior Logic\Attack" />
      <Folder Include="Assets\Prefabs\Bosses" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />
+     <Folder Include="Assets\Scripts\EnemyCore\Behavior Logic\Chase" />
      <Folder Include="Library\PackageCache\com.unity.modules.vehicles@1.0.0" />
      <None Include="Library\PackageCache\com.unity.modules.xr@1.0.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Tests" />
@@ -401,6 +427,7 @@
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_Properties.cginc" />
      <Folder Include="Library\PackageCache\com.unity.render-pipelines.core@12.1.9\Tests" />
      <Folder Include="Assets\Prefabs\Bullets" />
+     <Folder Include="Assets\Scripts\Home\Collections" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF Internal Editor.shader" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\xdiff.es.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\configurehelper.zh-Hans.txt" />
@@ -422,6 +449,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\commontypes.ko.txt" />
      <None Include="Library\PackageCache\com.unity.2d.sprite@1.0.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.17" />
+     <Folder Include="Assets\Scripts\EnemyCore\State Machine\EnemyStates" />
      <None Include="Library\PackageCache\com.unity.modules.androidjni@1.0.0\package.json" />
      <Folder Include="Assets\Scripts\Characters\Bosses" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
@@ -429,13 +457,14 @@
      <Folder Include="Library\PackageCache\com.unity.modules.video@1.0.0" />
      <Folder Include="Library\PackageCache\com.unity.modules.ai@1.0.0" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\localization\configurehelper.ko.txt" />
-     <Folder Include="Assets\Scripts\Character\Base" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData_Assets.json" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <Folder Include="Assets\Scripts\EnemyCore\EnemyData" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@1.17.7\Editor" />
      <Folder Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0" />
      <Folder Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.9\Textures\BlueNoise16\L" />
      <None Include="Library\PackageCache\com.unity.2d.spriteshape@7.0.6\package.json" />
+     <Folder Include="Assets\Core\CustomAttributes\ReadOnly" />
      <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\ValidationExceptions.json" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Package Resources" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
@@ -1124,6 +1153,10 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="EasyButtons.Editor.csproj">
+      <Project>{4f2a4715-2e2a-8a38-a762-0b044cfb075c}</Project>
+      <Name>EasyButtons.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj">
       <Project>{86f3aec5-5c70-65a2-7bed-5bc313bf4890}</Project>
       <Name>Unity.InternalAPIEngineBridge.001</Name>
@@ -1139,6 +1172,10 @@
     <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.csproj">
       <Project>{80d552b0-c58d-a007-bbf7-1f915f8be0f8}</Project>
       <Name>Unity.RenderPipelines.Universal.Shaders</Name>
+    </ProjectReference>
+    <ProjectReference Include="EasyButtons.csproj">
+      <Project>{4b8af206-9bfc-c668-60ed-44dba79c87ae}</Project>
+      <Name>EasyButtons</Name>
     </ProjectReference>
     <ProjectReference Include="PsdPlugin.csproj">
       <Project>{809f6ff3-6dd2-67d5-711b-5e7799788af1}</Project>
@@ -1347,14 +1384,6 @@
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{18b1c889-9a1c-9aa4-d959-14e4cf535cba}</Project>
       <Name>Unity.VisualScripting.State</Name>
-    </ProjectReference>
-    <ProjectReference Include="EasyButtons.Editor.csproj">
-      <Project>{4f2a4715-2e2a-8a38-a762-0b044cfb075c}</Project>
-      <Name>EasyButtons.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="EasyButtons.csproj">
-      <Project>{4b8af206-9bfc-c668-60ed-44dba79c87ae}</Project>
-      <Name>EasyButtons</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

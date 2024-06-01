@@ -43,28 +43,31 @@
   <ItemGroup>
      <Compile Include="Assets\Core\InfiniteListView\IInfiniteListView.cs" />
      <Compile Include="Assets\Scripts\UI\ChooseItem.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyStates\EnemyBounceState.cs" />
      <Compile Include="Assets\Scripts\Environment\HiveGround.cs" />
      <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
+     <Compile Include="Assets\Scripts\Home\Collections\EnemyCollection\EnemyPreviewElement.cs" />
      <Compile Include="Assets\Scripts\Environment\HiveBehavior.cs" />
      <Compile Include="Assets\Scripts\Weapons\Gun.cs" />
      <Compile Include="Assets\Scripts\Weapons\Bullets\BulletStandard.cs" />
      <Compile Include="Assets\Core\EndlessScroll\Descending.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Behavior Logic\Idle\EnemyIdleSOBase.cs" />
      <Compile Include="Assets\Core\ObjectPooling\PoolManager.cs" />
      <Compile Include="Assets\Scripts\Characters\BossCollection.cs" />
      <Compile Include="Assets\Scripts\PlayerSettings\PlayerCharacterCollection.cs" />
      <Compile Include="Assets\Scripts\Objects\ItemCollection.cs" />
-     <Compile Include="Assets\Scripts\Character\Interfaces\IMovable.cs" />
+     <Compile Include="Assets\Core\CustomAttributes\ReadOnly\ReadOnlyDrawer.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Interfaces\IMovable.cs" />
      <Compile Include="Assets\Core\Popup\PopupPresenter.cs" />
      <Compile Include="Assets\Core\MonoSingleton.cs" />
      <Compile Include="Assets\Scripts\Weapons\BulletBehavior.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Characters\EnemyCollection.cs" />
      <Compile Include="Assets\Scripts\Characters\CharacterBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterMoveState.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterDashState.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterIdleState.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Behavior Logic\Attack\EnemyAttackSOBase.cs" />
      <Compile Include="Assets\Core\EndlessScroll\CellCreator.cs" />
      <Compile Include="Assets\Scripts\PlayerSettings\PlayerCharacterSO.cs" />
+     <Compile Include="Assets\Scripts\Home\SelectCharacter\CharacterDataPreview.cs" />
      <Compile Include="Assets\Scripts\Weapons\GunCollection.cs" />
      <Compile Include="Assets\Scripts\Managers\GunManager.cs" />
      <Compile Include="Assets\Core\EndlessScroll\SimpleListView.cs" />
@@ -72,6 +75,7 @@
      <Compile Include="Assets\Core\InfiniteListView\ISetupElement.cs" />
      <Compile Include="Assets\Scripts\UI\ChooseGunSlot.cs" />
      <Compile Include="Assets\Scripts\Objects\ItemCrystal.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Trigger Checks\EnemyAggroCheck.cs" />
      <Compile Include="Assets\Scripts\General\ClosePopupButton.cs" />
      <Compile Include="Assets\Scripts\Home\Buttons\HomeMenuButton.cs" />
      <Compile Include="Assets\Scripts\Home\SelectCharacter\CharacterPreview.cs" />
@@ -79,46 +83,59 @@
      <Compile Include="Assets\Scripts\Characters\Inventory.cs" />
      <Compile Include="Assets\Core\EndlessScroll\Ascending.cs" />
      <Compile Include="Assets\Scripts\Managers\CoinManager.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Behavior Logic\Chase\EnemyChaseSOBase.cs" />
      <Compile Include="Assets\Scripts\UI\FloatText.cs" />
      <Compile Include="Assets\Scripts\Characters\EnemyBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\Base\Character.cs" />
+     <Compile Include="Assets\Scripts\Home\Collections\EnemyCollection\EnemyPreview.cs" />
+     <Compile Include="Assets\Scripts\Home\Collections\CollectionItemPreview.cs" />
      <Compile Include="Assets\Scripts\Characters\Bosses\TheDot.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyStates\EnemyIdleState.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerInputActionManager.cs" />
      <Compile Include="Assets\Core\InfiniteListView\ListViewElement.cs" />
      <Compile Include="Assets\Scripts\Home\Coin\CoinPreview.cs" />
+     <Compile Include="Assets\Scripts\Home\Collections\EnemyCollection\EnemiesListView.cs" />
      <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterAttackState.cs" />
      <Compile Include="Assets\Core\Popup\IShowPopup.cs" />
      <Compile Include="Assets\Scripts\Home\SelectCharacter\CharacterPreviewElement.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyStates\EnemyChaseState.cs" />
      <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
-     <Compile Include="Assets\Scripts\Character\Player.cs" />
      <Compile Include="Assets\Scripts\Home\SelectCharacter\SelectCharacterButton.cs" />
      <Compile Include="Assets\Scripts\Home\SelectCharacter\CharactersListView.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Behavior Logic\Attack\EnemyAttackGunner.cs" />
      <Compile Include="Assets\Scripts\Objects\Items\ItemGun.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Enemy.cs" />
      <Compile Include="Assets\Scripts\Characters\Bosses\TheClone.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Behavior Logic\Chase\EnemyChaseDirectToPlayer.cs" />
      <Compile Include="Assets\Core\EndlessScroll\Vertical.cs" />
      <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
      <Compile Include="Assets\Core\EndlessScroll\Horizontal.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyStates\EnemyAttackState.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Trigger Checks\EnemyStrikingDistanceCheck.cs" />
      <Compile Include="Assets\Scripts\UI\MenuButtons.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Trigger Checks\EnemyHitCheck.cs" />
      <Compile Include="Assets\Scripts\Characters\CharacterMovement.cs" />
      <Compile Include="Assets\Scripts\Objects\Items\ItemCoin.cs" />
+     <Compile Include="Assets\Core\CustomAttributes\ReadOnly\ReadOnlyAttribute.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
      <Compile Include="Assets\Scripts\Characters\ICharacterBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\Interfaces\IDamageable.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Interfaces\IDamageable.cs" />
+     <Compile Include="Assets\Scripts\Home\Collections\CollectionElement.cs" />
      <Compile Include="Assets\Scripts\Home\SelectCharacter\UnlockCharacterButton.cs" />
      <Compile Include="Assets\Scripts\Managers\FxManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Items\ItemHealth.cs" />
      <Compile Include="Assets\Scripts\Characters\PlayerBehavior.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\CharacterState.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyState.cs" />
      <Compile Include="Assets\Scripts\Weapons\BulletCollection.cs" />
      <Compile Include="Assets\Core\DataHandle\DataHandler.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\CharacterStateMachine.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\Interfaces\ITriggerCheckable.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\State Machine\EnemyStateMachine.cs" />
+     <Compile Include="Assets\Scripts\PhysicalObjectBehavior.cs" />
      <Compile Include="Assets\Scripts\Managers\Navigator.cs" />
      <Compile Include="Assets\Scripts\PlayerSettings\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
      <Compile Include="Assets\Scripts\Environment\GroundBehavior.cs" />
      <Compile Include="Assets\Scripts\Weapons\Bullets\BulletBlossom.cs" />
-     <Compile Include="Assets\Scripts\Character\State Machine\States\CharacterMoveRbState.cs" />
+     <Compile Include="Assets\Scripts\EnemyCore\EnemyData\EnemyStats.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.17f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.dll</HintPath>
      </Reference>
@@ -706,6 +723,10 @@
       <Project>{bb4cf79c-5213-4776-ebce-b962944ee55c}</Project>
       <Name>Unity.RenderPipelines.Universal.Shaders.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="EasyButtons.Player.csproj">
+      <Project>{b34162e8-0ab2-2134-31cf-b47e96e445c0}</Project>
+      <Name>EasyButtons.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.InputSystem.Player.csproj">
       <Project>{975910c7-ea1b-f932-084b-7191afe0d460}</Project>
       <Name>Unity.InputSystem.Player</Name>
@@ -793,10 +814,6 @@
     <ProjectReference Include="Unity.VisualScripting.State.Player.csproj">
       <Project>{1ae70115-7a70-f8ab-6f22-edc39ab51f08}</Project>
       <Name>Unity.VisualScripting.State.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="EasyButtons.Player.csproj">
-      <Project>{b34162e8-0ab2-2134-31cf-b47e96e445c0}</Project>
-      <Name>EasyButtons.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

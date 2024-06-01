@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class BulletBehavior : MonoBehaviour
 {
     #region STATS
-    protected int damage;
+    public int Damage { get; private set; }
     protected float speed;
     #endregion
 
@@ -20,7 +20,7 @@ public abstract class BulletBehavior : MonoBehaviour
     protected float lifeLength = 30f;
     protected float lifeCount = 0f;
 
-    public abstract void BulletHit();
+    public abstract void BulletHit(Transform obstacle);
 
     void FixedUpdate()
     {
@@ -29,7 +29,7 @@ public abstract class BulletBehavior : MonoBehaviour
         if (lifeCount < lifeLength)
             lifeCount += Time.deltaTime * GameManager.Instance.TimeScale;
         else
-            BulletHit();
+            DestroyBullet();
 
         Move();
         CheckHit();
@@ -37,7 +37,7 @@ public abstract class BulletBehavior : MonoBehaviour
 
     public void SetBulletStats(int damage, float startSpeed, float lifeLength, Vector2 startDirection, Color color, string layerName)
     {
-        this.damage = damage;
+        this.Damage = damage;
         this.speed = startSpeed;
         this.direction = startDirection.normalized;
         this.lifeLength = lifeLength;
@@ -76,12 +76,12 @@ public abstract class BulletBehavior : MonoBehaviour
         { 
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")
                 || hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
-                hit.transform.GetComponent<CharacterBehavior>().Damaged(Random.Range(damage - 2, damage + 2));
+                hit.transform.GetComponent<CharacterBehavior>()?.Damaged(Random.Range(Damage - 2, Damage + 2));
             
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("ItemCrystal"))
                 hit.transform.GetComponent<ItemCrystal>().Damaged();
                 
-            BulletHit();
+            BulletHit(hit.transform);
         }
     }
 

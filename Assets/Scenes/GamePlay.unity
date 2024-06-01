@@ -4526,7 +4526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d14ad78e88ce14d894ffbf49c58012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6531742352436333760, guid: 6cda58222e3515b439771c6f1ecd061a, type: 3}
+  enemyPrefab: {fileID: 6531742352436333760, guid: a493a71c10a4bb9448def97f92346e55, type: 3}
   bossing: 0
   currentBoss: {fileID: 0}
   currentBossName: 
@@ -18686,7 +18686,6 @@ GameObject:
   - component: {fileID: 1646185653}
   - component: {fileID: 1646185652}
   - component: {fileID: 1646185651}
-  - component: {fileID: 1646185654}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -18781,7 +18780,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   useRigidbody: 1
   rb2d: {fileID: 1646185653}
-  inventory: {fileID: 0}
+  isImmortal: 1
 --- !u!60 &1646185652
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18831,18 +18830,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1646185654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646185648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9cf65670269ca45b7138867d3cb41a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1672967281
 GameObject:
   m_ObjectHideFlags: 0

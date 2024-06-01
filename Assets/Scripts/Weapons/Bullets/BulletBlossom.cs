@@ -9,7 +9,7 @@ public class BulletBlossom : BulletBehavior
     [SerializeField] private BulletBehavior childBullet;
     [SerializeField] private float childScale;
 
-    public override void BulletHit()
+    public override void BulletHit(Transform obstacle)
     {
         Blossom();
         DestroyBullet();
@@ -33,7 +33,7 @@ public class BulletBlossom : BulletBehavior
             originalDir.x = Mathf.Cos(angle);
             originalDir.y = Mathf.Sin(angle);
             
-            b.SetBulletStats(Mathf.Max(10, Mathf.FloorToInt(damage / childNum)), childSpeed, 30f, originalDir.normalized, spriteRenderer.color, LayerMask.LayerToName(gameObject.layer));
+            b.SetBulletStats(Mathf.Max(10, Mathf.FloorToInt(Damage / childNum)), childSpeed, 30f, originalDir.normalized, spriteRenderer.color, LayerMask.LayerToName(gameObject.layer));
         }
     }
 }

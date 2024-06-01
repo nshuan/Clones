@@ -16,6 +16,7 @@ MonoBehaviour:
   <MaxHealth>k__BackingField: 200
   <Damage>k__BackingField: 4
   <Speed>k__BackingField: 10
+  <DefaultGun>k__BackingField: 3
   <AvatarSprite>k__BackingField: {fileID: -2135585597343286014, guid: eed45a33cd08446c8b88325cf82fc52f, type: 3}
   <Color>k__BackingField: {r: 0, g: 1, b: 1, a: 1}
   <UnlockPrice>k__BackingField: 1000

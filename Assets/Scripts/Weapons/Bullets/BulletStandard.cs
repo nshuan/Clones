@@ -7,11 +7,11 @@ public class BulletStandard : BulletBehavior
 {
     [SerializeField] protected TrailRenderer trail;
     
-    public override void BulletHit()
+    public override void BulletHit(Transform obstacle)
     {
         // destroyFx.transform.SetParent(null);
         // destroyFx.Play();
-        DestroyBullet();
+        // DestroyBullet();
     }
 
     protected override void SetupTrail(Color color)

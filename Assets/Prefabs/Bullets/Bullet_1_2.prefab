@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7242672528803125346}
   - component: {fileID: 5761380861296097795}
   - component: {fileID: 6061318450905996567}
+  - component: {fileID: 6298060535699822078}
   m_Layer: 0
   m_Name: Bullet_1_2
   m_TagString: Untagged
@@ -98,10 +99,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 5761380861296097795}
-  trail: {fileID: 0}
   destroyFx: {fileID: 0}
   childBullet: {fileID: 4041250127294837180, guid: c04f3590a8f6fca439ed3586369303cd, type: 3}
   childScale: 0.2
   childNum: 16
   childSpeed: 16
   maxWave: 8
+--- !u!58 &6298060535699822078
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669949298411761086}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

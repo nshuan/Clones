@@ -88,7 +88,7 @@ MonoBehaviour:
   - name: Cherry Canon 16
     type: 6
     bullet: {fileID: 6061318450905996567, guid: d7461ad48be3ef94ea066a406f26fc50, type: 3}
-    id: 5
+    id: 6
     baseDamage: 10
     fireRate: 16
     bulletSpeed: 0

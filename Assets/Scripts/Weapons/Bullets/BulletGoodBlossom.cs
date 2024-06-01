@@ -13,7 +13,7 @@ public class BulletGoodBlossom : BulletBehavior
 
     private int waveCount = 0;
 
-    public override void BulletHit()
+    public override void BulletHit(Transform obstacle)
     {
         Blossom();
         lifeCount = 0f;
@@ -38,7 +38,7 @@ public class BulletGoodBlossom : BulletBehavior
             originalDir.x = Mathf.Cos(angle);
             originalDir.y = Mathf.Sin(angle);
             
-            b.SetBulletStats(Mathf.Max(10, Mathf.FloorToInt(damage / childNum)), childSpeed + waveCount * 0.125f, 30f, originalDir, spriteRenderer.color, LayerMask.LayerToName(gameObject.layer));
+            b.SetBulletStats(Mathf.Max(10, Mathf.FloorToInt(Damage / childNum)), childSpeed + waveCount * 0.125f, 30f, originalDir, spriteRenderer.color, LayerMask.LayerToName(gameObject.layer));
         }
     }
 }

@@ -10,11 +10,12 @@ using UnityEngine;
 /// Can switch gun and be healed.
 /// </summary>/
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Inventory))]
 public class PlayerBehavior : CharacterBehavior
 {
     [HideInInspector] public Inventory inventory;
     private PlayerCharacterSO _charData;
+
+    [SerializeField] private bool isImmortal = false; 
 
     protected override void Awake()
     {
@@ -150,10 +151,10 @@ public class PlayerBehavior : CharacterBehavior
         // if dashing then enemy died
         if (charState == State.dash)
         {
-            enemy.GetComponent<CharacterBehavior>().Damaged(10 + damage + PlayerData.Level);
+            // enemy.GetComponent<CharacterBehavior>().Damaged(10 + damage + PlayerData.Level);
         }
         
-        Damaged(enemy.GetComponent<CharacterBehavior>().HitPlayer());        
+        // Damaged(enemy.GetComponent<CharacterBehavior>().HitPlayer());        
     }
 
     public override int HitPlayer()
@@ -170,6 +171,7 @@ public class PlayerBehavior : CharacterBehavior
 
     public override void Damaged(int value)
     {
+        if (isImmortal) return;
         if (damageImmune) return;
         
         health -= value;
