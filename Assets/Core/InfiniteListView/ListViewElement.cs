@@ -5,7 +5,7 @@ namespace Core.InfiniteListView
 {
     public abstract class ListViewElement<T> : MonoBehaviour where T : IElementInfo
     {
-        public abstract void Setup(T participantInfo, int rank);
+        public abstract void Setup(T elementInfo, int rank);
     }
 
     public abstract class ElementData<TInfo, TElement> 

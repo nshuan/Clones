@@ -14,15 +14,11 @@ namespace Scripts.Home.Collections
         {
             Previewer = target;
         }
-        
-        public override void Setup(TInfo participantInfo, int rank)
-        {
-            ElementInfo = participantInfo;
-        }
 
         public void OnPointerClick(PointerEventData eventData)
         {
             Previewer.SetupPreview(ElementInfo);
+            if (Previewer.gameObject.activeSelf == false) Previewer.gameObject.SetActive(true);
         }
     }
 

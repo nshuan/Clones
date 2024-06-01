@@ -25,6 +25,11 @@ namespace Characters
             return enemyTypes[index].EnemyPrefab;
         }
 
+        public List<EnemyReference> GetAllEnemy()
+        {
+            return enemyTypes;
+        }
+
         // [Button]
         // private void SaveEnemyData()
         // {

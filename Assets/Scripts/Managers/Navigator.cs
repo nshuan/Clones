@@ -23,7 +23,7 @@ public class Navigator : MonoBehaviour
 
     public void LoadMenuScene()
     {
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("Home");
     }
 
     public void ExitGame()

@@ -3,14 +3,18 @@ using Core.EndlessScroll;
 using Core.InfiniteListView;
 using EnemyCore.EnemyData;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Scripts.Home.Collections
 {
     public class EnemyPreviewElement : CollectionElement<EnemyPreviewInfo>
     {
-        public override void Setup(EnemyPreviewInfo participantInfo, int rank)
+        [SerializeField] private Image elementImage;
+        
+        public override void Setup(EnemyPreviewInfo elementInfo, int rank)
         {
-            throw new System.NotImplementedException();
+            ElementInfo = elementInfo;
+            elementImage.color = elementInfo.Stats.VisualColor;
         }
     }
 

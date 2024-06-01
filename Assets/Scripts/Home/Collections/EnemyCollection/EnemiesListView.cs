@@ -1,8 +1,48 @@
+using System.Collections.Generic;
+using Core.EndlessScroll;
+using Core.InfiniteListView;
+using Scripts.Home.SelectCharacter;
+using UnityEngine;
+
 namespace Scripts.Home.Collections
 {
-    public class EnemiesListView
+    public class EnemiesListView : InfiniteListView<EnemyPreviewInfo, EnemyPreviewData>
     {
+        [SerializeField] private EnemyPreview previewer;
         
+        private void OnEnable()
+        {
+            previewer.gameObject.SetActive(false);
+            LoadEnemyData();
+            OnDataLoaded();
+        }
+
+        public override void InitListViewData()
+        {
+            listView.data = new List<SimpleCell.ICellData>();
+            foreach (var elementInfo in elementInfos)
+            {
+                listView.data.Add(new EnemyPreviewData()
+                {
+                    ElementInfo = elementInfo,
+                    Previewer = previewer
+                });
+            };
+        }
+        
+        private void LoadEnemyData()
+        {
+            var enemies = EnemyManager.Instance.EnemyCollection.GetAllEnemy();
+
+            elementInfos = new List<EnemyPreviewInfo>();
+            foreach (var enemy in enemies)
+            {
+                elementInfos.Add(new EnemyPreviewInfo()
+                {
+                    Stats = enemy.EnemyPrefab.Stats
+                });
+            }
+        }
     }
 }
 
