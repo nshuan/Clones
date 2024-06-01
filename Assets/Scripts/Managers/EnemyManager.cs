@@ -30,11 +30,11 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
         EnemyCollection = Resources.Load<EnemyCollection>(EnemyCollectionPath);
         
-        EnemyCollection.GetEnemyStat(EnemyType.Normie).SetupFragments(1, Random.Range(3, 6));
-        EnemyCollection.GetEnemyStat(EnemyType.Runner).SetupFragments(2, Random.Range(2, 4));
-        EnemyCollection.GetEnemyStat(EnemyType.Hunter).SetupFragments(2, Random.Range(8, 16));
-        EnemyCollection.GetEnemyStat(EnemyType.Soldier).SetupFragments(1, Random.Range(4, 8));
-        EnemyCollection.GetEnemyStat(EnemyType.Tanker).SetupFragments(4, Random.Range(6, 10));
+        // EnemyCollection.GetEnemyStat(EnemyType.Normie).SetupFragments(1, Random.Range(3, 6));
+        // EnemyCollection.GetEnemyStat(EnemyType.Runner).SetupFragments(2, Random.Range(2, 4));
+        // EnemyCollection.GetEnemyStat(EnemyType.Hunter).SetupFragments(2, Random.Range(8, 16));
+        // EnemyCollection.GetEnemyStat(EnemyType.Soldier).SetupFragments(1, Random.Range(4, 8));
+        // EnemyCollection.GetEnemyStat(EnemyType.Tanker).SetupFragments(4, Random.Range(6, 10));
     }
 
     public void EnemyHit(int id, int damaged)

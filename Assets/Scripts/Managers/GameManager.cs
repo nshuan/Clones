@@ -104,7 +104,9 @@ public class GameManager : MonoSingleton<GameManager>
     {
         PlayerData.AddEnemyKilled(value);
         PlayerData.AddSoulFragment(soul);
+        var currentLevel = PlayerData.Level;
         PlayerData.UpdateLevel(PlayerData.SoulFragment / 8 + 1);
+        if (PlayerData.Level > currentLevel) OnPlayerLevelUp?.Invoke(PlayerData.Level);
 
         if (PlayerData.Level % 5 == 0)
             SummonBoss();

@@ -13,7 +13,6 @@ namespace Managers.Spawner
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private SpawnerData spawnerData;
-        [SerializeField] private GameObject enemyPrefab;
 
         private int _currentLevel = 1;
         private SpawnerThreshold _currentThresholdData = new SpawnerThreshold();
@@ -48,17 +47,17 @@ namespace Managers.Spawner
             
             // Camera size = 16f     x 9f
             // Max radius = 28f
-            var newStats = GetRandomEnemy();
+            var newEnemy = GetRandomEnemy();
             Vector2 offset = Random.insideUnitCircle * 12f;
-            Enemy newScript = Instantiate(enemyPrefab, (Vector2) Camera.main.transform.position + new Vector2(16f * Mathf.Sign(offset.x), 16f * Mathf.Sign(offset.y)) + offset, Quaternion.identity)
-                .GetComponent<Enemy>();
-            newScript.SetupStats(newStats);
+            Instantiate(newEnemy, (Vector2) Camera.main.transform.position + new Vector2(16f * Mathf.Sign(offset.x), 16f * Mathf.Sign(offset.y)) + offset, Quaternion.identity)
+                .GetComponent<Enemy>()
+                .InitEnemy(PlayerData.Level);
 
             _spawnCdCounter = 0f;
             _activeEnemy += 1;
         }
         
-        private EnemyStats GetRandomEnemy()
+        private Enemy GetRandomEnemy()
         {
             var totalRate = -_currentThresholdData.SpawnableTypes.Sum(st => st.Chance);
             var cumulativeRate = 0f;
@@ -69,11 +68,11 @@ namespace Managers.Spawner
                 cumulativeRate += st.Chance;
                 if (k <= cumulativeRate)
                 {
-                    return EnemyManager.Instance.EnemyCollection.GetEnemyStat(st.EnemyType);
+                    return EnemyManager.Instance.EnemyCollection.GetEnemy(st.EnemyType);
                 }
             }
 
-            return EnemyManager.Instance.EnemyCollection.GetEnemyStat(EnemyType.Normie);
+            return EnemyManager.Instance.EnemyCollection.GetEnemy(EnemyType.Normie);
         }
 
         private void OnPlayerLevelUp(int currentLevel)

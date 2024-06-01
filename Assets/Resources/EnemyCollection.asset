@@ -13,58 +13,13 @@ MonoBehaviour:
   m_Name: EnemyCollection
   m_EditorClassIdentifier: 
   enemyTypes:
-  - <Name>k__BackingField: Normie
-    <EnemyType>k__BackingField: 0
-    <EnemyClass>k__BackingField: 0
-    <MaxHealth>k__BackingField: 60
-    <BaseDamage>k__BackingField: 1
-    <Speed>k__BackingField: 2
-    <AttackRange>k__BackingField: 10
-    <SizeScale>k__BackingField: 1
-    <VisualColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
-    <HasGun>k__BackingField: 1
-    <GunType>k__BackingField: 0
-  - <Name>k__BackingField: Runner
-    <EnemyType>k__BackingField: 1
-    <EnemyClass>k__BackingField: 1
-    <MaxHealth>k__BackingField: 50
-    <BaseDamage>k__BackingField: 1
-    <Speed>k__BackingField: 6
-    <AttackRange>k__BackingField: 0
-    <SizeScale>k__BackingField: 0.8
-    <VisualColor>k__BackingField: {r: 1, g: 1, b: 0, a: 1}
-    <HasGun>k__BackingField: 0
-    <GunType>k__BackingField: 0
-  - <Name>k__BackingField: Hunter
-    <EnemyType>k__BackingField: 2
-    <EnemyClass>k__BackingField: 0
-    <MaxHealth>k__BackingField: 80
-    <BaseDamage>k__BackingField: 1
-    <Speed>k__BackingField: 4
-    <AttackRange>k__BackingField: 8
-    <SizeScale>k__BackingField: 1.2
-    <VisualColor>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
-    <HasGun>k__BackingField: 1
-    <GunType>k__BackingField: 1
-  - <Name>k__BackingField: Soldier
-    <EnemyType>k__BackingField: 3
-    <EnemyClass>k__BackingField: 0
-    <MaxHealth>k__BackingField: 80
-    <BaseDamage>k__BackingField: 1
-    <Speed>k__BackingField: 4
-    <AttackRange>k__BackingField: 12
-    <SizeScale>k__BackingField: 1.2
-    <VisualColor>k__BackingField: {r: 0, g: 1, b: 1, a: 1}
-    <HasGun>k__BackingField: 1
-    <GunType>k__BackingField: 2
-  - <Name>k__BackingField: Tanker
-    <EnemyType>k__BackingField: 4
-    <EnemyClass>k__BackingField: 0
-    <MaxHealth>k__BackingField: 140
-    <BaseDamage>k__BackingField: 4
-    <Speed>k__BackingField: 2
-    <AttackRange>k__BackingField: 7
-    <SizeScale>k__BackingField: 1.6
-    <VisualColor>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
-    <HasGun>k__BackingField: 1
-    <GunType>k__BackingField: 4
+  - <EnemyType>k__BackingField: 0
+    <EnemyPrefab>k__BackingField: {fileID: 1977049140517823789, guid: 1322cb82bee03054c9750a314ff07cca, type: 3}
+  - <EnemyType>k__BackingField: 1
+    <EnemyPrefab>k__BackingField: {fileID: 1977049140517823789, guid: 8215a08d3cbd0b342981c927104a67b4, type: 3}
+  - <EnemyType>k__BackingField: 2
+    <EnemyPrefab>k__BackingField: {fileID: 1977049140517823789, guid: 709a5c9e2bea8a845b927df874d74eb7, type: 3}
+  - <EnemyType>k__BackingField: 3
+    <EnemyPrefab>k__BackingField: {fileID: 1977049140517823789, guid: f9fd4ece4c15eff4ab95c7e7b1f88b03, type: 3}
+  - <EnemyType>k__BackingField: 4
+    <EnemyPrefab>k__BackingField: {fileID: 1977049140517823789, guid: 1ee9e8dd6e89e124ab4ec5194b498237, type: 3}
