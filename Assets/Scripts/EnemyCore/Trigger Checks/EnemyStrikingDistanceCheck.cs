@@ -5,13 +5,18 @@ namespace EnemyCore.Trigger_Checks
     [RequireComponent(typeof(Collider2D))]
     public class EnemyStrikingDistanceCheck : MonoBehaviour
     {
-        public GameObject Target { get; set; }
+        private GameObject Target { get; set; }
         private Enemy _enemy;
 
+        [SerializeField] private CircleCollider2D cld;
+        
         private void Awake()
         {
             Target = GameManager.Instance.player.gameObject;
             _enemy = GetComponentInParent<Enemy>();
+            
+            // Setup range
+            cld.radius = _enemy.Stats.AttackRange;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

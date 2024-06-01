@@ -134,14 +134,14 @@ public class PlayerBehavior : CharacterBehavior
         {
             if (hit.collider.tag == "Enemy")
             {
-                HitEnemy(hit.transform);
-                Bounce(transform.position - hit.transform.position, 3f, 0.5f);
+                // HitEnemy(hit.transform);
+                // Bounce(transform.position - hit.transform.position, 3f, 0.5f);
             }
             else
             {
                 // Vector3 inVector = (transform.position - (Vector3)hit.point).normalized;
                 // Bounce(hit.transform.up - inVector * (0.5f / Mathf.Cos(Vector2.Angle(hit.transform.up, inVector))), 3f, 0.5f);
-                Bounce(hit.transform.up * 2 - (transform.position - (Vector3)hit.point).normalized, 4f, 0.5f);
+                // Bounce(hit.transform.up * 2 - (transform.position - (Vector3)hit.point).normalized, 4f, 0.5f);
             }
         }
     }
@@ -151,10 +151,10 @@ public class PlayerBehavior : CharacterBehavior
         // if dashing then enemy died
         if (charState == State.dash)
         {
-            // enemy.GetComponent<CharacterBehavior>().Damaged(10 + damage + PlayerData.Level);
+            enemy.GetComponent<CharacterBehavior>().Damaged(10 + damage + PlayerData.Level);
         }
         
-        // Damaged(enemy.GetComponent<CharacterBehavior>().HitPlayer());        
+        Damaged(enemy.GetComponent<CharacterBehavior>().HitPlayer());        
     }
 
     public override int HitPlayer()

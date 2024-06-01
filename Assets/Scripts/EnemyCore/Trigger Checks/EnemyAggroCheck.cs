@@ -7,8 +7,10 @@ namespace EnemyCore.Trigger_Checks
     [RequireComponent(typeof(Collider2D))]
     public class EnemyAggroCheck : MonoBehaviour
     {
-        public GameObject Target { get; set; }
+        private GameObject Target { get; set; }
         private Enemy _enemy;
+
+        [SerializeField] private CircleCollider2D cld;
 
         private void Awake()
         {
