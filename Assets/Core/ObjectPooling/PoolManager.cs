@@ -7,10 +7,10 @@ namespace Core.ObjectPooling
 {
     public class PoolManager : MonoSingleton<PoolManager>
     {
-        private Dictionary<string, Queue<GameObject>> _pools = new();
-        private Dictionary<string, Transform> _containers = new();
+        protected Dictionary<string, Queue<GameObject>> _pools = new();
+        protected Dictionary<string, Transform> _containers = new();
         
-        public T Get<T>(T prefab, Transform parent = null, bool active = true) where T : MonoBehaviour
+        public virtual T Get<T>(T prefab, Transform parent = null, bool active = true) where T : MonoBehaviour
         {
             var poolType =  prefab.GetType().ToString();
             if (_pools.TryGetValue(poolType, out var pool))
@@ -37,7 +37,7 @@ namespace Core.ObjectPooling
             }
         }
 
-        public void Release<T>(T obj) where T : MonoBehaviour
+        public virtual void Release<T>(T obj) where T : MonoBehaviour
         {
             var poolType = obj.GetType().ToString();
             if (_pools.TryGetValue(poolType, out var pool))

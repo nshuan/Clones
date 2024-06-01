@@ -157,7 +157,7 @@ public class EnemyBehavior : CharacterBehavior
 
     public override void Die()
     {
-        EnemyManager.Instance.EnemyDied(soulFragment, coin);
+        // EnemyManager.Instance.EnemyDied(soulFragment, coin);
         DropItems();
 
         dieFx.transform.SetParent(null);

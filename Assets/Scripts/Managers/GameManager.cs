@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Core;
@@ -20,6 +21,8 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    public static event Action<int> OnPlayerLevelUp; 
+    
     protected override void Awake()
     {
         base.Awake();

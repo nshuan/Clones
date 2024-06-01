@@ -15,6 +15,7 @@ MonoBehaviour:
   enemyTypes:
   - <Name>k__BackingField: Normie
     <EnemyType>k__BackingField: 0
+    <EnemyClass>k__BackingField: 0
     <MaxHealth>k__BackingField: 60
     <BaseDamage>k__BackingField: 1
     <Speed>k__BackingField: 2
@@ -25,6 +26,7 @@ MonoBehaviour:
     <GunType>k__BackingField: 0
   - <Name>k__BackingField: Runner
     <EnemyType>k__BackingField: 1
+    <EnemyClass>k__BackingField: 1
     <MaxHealth>k__BackingField: 50
     <BaseDamage>k__BackingField: 1
     <Speed>k__BackingField: 6
@@ -35,6 +37,7 @@ MonoBehaviour:
     <GunType>k__BackingField: 0
   - <Name>k__BackingField: Hunter
     <EnemyType>k__BackingField: 2
+    <EnemyClass>k__BackingField: 0
     <MaxHealth>k__BackingField: 80
     <BaseDamage>k__BackingField: 1
     <Speed>k__BackingField: 4
@@ -45,6 +48,7 @@ MonoBehaviour:
     <GunType>k__BackingField: 1
   - <Name>k__BackingField: Soldier
     <EnemyType>k__BackingField: 3
+    <EnemyClass>k__BackingField: 0
     <MaxHealth>k__BackingField: 80
     <BaseDamage>k__BackingField: 1
     <Speed>k__BackingField: 4
@@ -55,6 +59,7 @@ MonoBehaviour:
     <GunType>k__BackingField: 2
   - <Name>k__BackingField: Tanker
     <EnemyType>k__BackingField: 4
+    <EnemyClass>k__BackingField: 0
     <MaxHealth>k__BackingField: 140
     <BaseDamage>k__BackingField: 4
     <Speed>k__BackingField: 2
