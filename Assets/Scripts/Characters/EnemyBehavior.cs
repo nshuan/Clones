@@ -20,6 +20,7 @@ public class EnemyBehavior : CharacterBehavior
     #endregion
 
     private Transform target;
+    private int health;
 
     private List<ItemData> itemHolding = new List<ItemData>();
 
@@ -67,12 +68,12 @@ public class EnemyBehavior : CharacterBehavior
     {
         this.name = name;
         this.id = id;
-        this.maxHealth = maxHealth;
+        // this.maxHealth = maxHealth;
         this.health = maxHealth;
         this.soulFragment = soul;
         this.coin = coin;
-        this.damage = damage;
-        this.speed = speed;
+        // this.damage = damage;
+        // this.speed = speed;
         this.attackRange = attackRange;
         transform.localScale *= sizeScale;
         spriteRenderer.color = color;
@@ -80,9 +81,9 @@ public class EnemyBehavior : CharacterBehavior
         ParticleSystem.MainModule dieFxM = dieFx.main;
         dieFxM.startColor = new ParticleSystem.MinMaxGradient(color - new Color(0f, 0f, 0f, 0.75f), color - new Color(0f, 0f, 0f, 0.25f));
         ParticleSystem.TriggerModule coinFxTr = coinFx.trigger;
-        coinFxTr.AddCollider(GameManager.Instance.playerScript.GetCollider2D());
+        // coinFxTr.AddCollider(GameManager.Instance.playerScript.GetCollider2D());
         ParticleSystem.TriggerModule soulFxTr = soulFx.trigger;
-        soulFxTr.AddCollider(GameManager.Instance.playerScript.GetCollider2D());
+        // soulFxTr.AddCollider(GameManager.Instance.playerScript.GetCollider2D());
 
         this.gun = gun;
 
@@ -121,7 +122,8 @@ public class EnemyBehavior : CharacterBehavior
         Stand(1f);
         Bounce(transform.position - target.position, 3f / transform.localScale.x, 0.5f);
 
-        return damage;
+        return 0;
+        // return damage;
     }
 
     public void DropItems()

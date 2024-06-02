@@ -29,7 +29,7 @@ namespace Scripts.Home.SelectCharacter
         public void OnPointerClick(PointerEventData eventData)
         {
             _previewer.Setup(_elementData);
-            if (_previewer.gameObject.activeSelf == false) _previewer.gameObject.SetActive(true);
+            if (_previewer.gameObject.activeInHierarchy == false) _previewer.gameObject.SetActive(true);
         }
     }
 

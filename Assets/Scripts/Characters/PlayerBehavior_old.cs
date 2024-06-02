@@ -10,13 +10,14 @@ using UnityEngine;
 /// Can switch gun and be healed.
 /// </summary>/
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerBehavior : CharacterBehavior
+public class PlayerBehaviour : CharacterBehavior
 {
     [HideInInspector] public Inventory inventory;
     private PlayerCharacterSO _charData;
 
-    [SerializeField] private bool isImmortal = false; 
+    [SerializeField] private bool isImmortal = false;
 
+    private int _currentHealth;
     protected override void Awake()
     {
         base.Awake();
@@ -33,7 +34,7 @@ public class PlayerBehavior : CharacterBehavior
     {
         SetupCharacter(PlayerManager.Instance.CurrentCharacter);
         SetupGun();
-
+        _currentHealth = _charData.MaxHealth;
         timeScaleResistant = 1f;
     }
 
@@ -62,14 +63,69 @@ public class PlayerBehavior : CharacterBehavior
         }
     }
     
+    void FixedUpdate()
+    {
+        if (dashCdCounter < dashCooldown)
+        {
+            dashCdCounter += Time.deltaTime * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
+        }
+
+        switch (charState)
+        {
+            case State.stand:
+                // Aim(tempAimTargetPos);
+
+                if (standCounter < standDuration) 
+                    standCounter += Time.deltaTime * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
+                else
+                {
+                    standCounter = 0f;
+                    charState = State.move;
+                }
+
+                break;
+            
+            case State.move:
+                // Aim(tempAimTargetPos);
+                MoveWithRigidbody(tempMoveDirection, _charData.Speed);
+                break;
+            
+            case State.dash:
+                // Aim(tempAimTargetPos);
+
+                if (Vector2.Distance(transform.position, slipTarget) > 0.1f && slipCounter < slipDuration)
+                {
+                    var speed = 2;
+                    slipCounter += Time.deltaTime * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
+                    // transform.position = Vector2.SmoothDamp(transform.position, slipTarget, ref slipVel, 0.2f * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f));
+                    transform.position = Vector2.MoveTowards(transform.position, 
+                                            slipTarget, 0.02f * speed * dashSpeedScale * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f));
+                    break;
+                }
+
+                damageImmune = false;
+                charState = State.move;
+                break;
+
+            case State.freeze:
+                break;
+            
+            case State.bounce:
+                if (slipCounter < slipDuration)
+                {
+                    slipCounter += Time.deltaTime * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
+                    transform.position = Vector2.SmoothDamp(transform.position, slipTarget, ref slipVel, 0.2f * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f));
+                    break;
+                }
+                
+                charState = State.move;    
+                break;
+        }
+    }
+    
     private void SetupCharacter(PlayerCharacterSO charInfo)
     {
         _charData = charInfo;
-        
-        // Setup stats
-        maxHealth = charInfo.MaxHealth;
-        damage = charInfo.Damage;
-        speed = charInfo.Speed;
         
         // Setup visual
         spriteRenderer.sprite = charInfo.AvatarSprite;
@@ -155,7 +211,7 @@ public class PlayerBehavior : CharacterBehavior
         // if dashing then enemy died
         if (charState == State.dash)
         {
-            enemy.GetComponent<CharacterBehavior>().Damaged(10 + damage + PlayerData.Level);
+            enemy.GetComponent<CharacterBehavior>().Damaged(10 + _charData.Damage + PlayerData.Level);
         }
         
         Damaged(enemy.GetComponent<CharacterBehavior>().HitPlayer());        
@@ -163,7 +219,7 @@ public class PlayerBehavior : CharacterBehavior
 
     public override int HitPlayer()
     {
-        return damage;
+        return _charData.Damage;
     }
 
     public void UpdateGun()
@@ -178,17 +234,17 @@ public class PlayerBehavior : CharacterBehavior
         if (isImmortal) return;
         if (damageImmune) return;
         
-        health -= value;
-        UIManager.Instance.UpdateHealthBar(health, maxHealth);
+        _currentHealth -= value;
+        UIManager.Instance.UpdateHealthBar(_currentHealth, _charData.MaxHealth);
 
-        if (health < 0)
+        if (_currentHealth < 0)
             Die();
     }
     
     public void Heal(int value)
     {
-        health = Mathf.Min(health + value, maxHealth);
-        UIManager.Instance.UpdateHealthBar(health, maxHealth);
+        _currentHealth = Mathf.Min(_currentHealth + value, _charData.MaxHealth);
+        UIManager.Instance.UpdateHealthBar(_currentHealth, _charData.MaxHealth);
     }
 
     public override void Die()
@@ -197,4 +253,21 @@ public class PlayerBehavior : CharacterBehavior
         Destroy(gameObject);
     }
     #endregion
+    
+    /// <summary>
+    /// Calculate new position of character, using Rigidbody.
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="speed"></param>
+    protected void MoveWithRigidbody(Vector2 direction, float speed)
+    {
+        // If the character is moving diagonally, speed is multiply by 1.35f
+        float speedScale = 1f;
+        if (Mathf.Abs(direction.x) > 0.5f && Mathf.Abs(direction.y) > 0.5f)
+        {
+            speedScale = 1.35f;
+        }
+
+        rb2d.velocity = direction.normalized * (speed * speedScale * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f));
+    }
 }

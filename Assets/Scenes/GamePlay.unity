@@ -18471,7 +18471,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerData: {fileID: 11400000, guid: 879f0892005e117448284a379be005b9, type: 2}
-  enemyPrefab: {fileID: 6531742352436333760, guid: a493a71c10a4bb9448def97f92346e55, type: 3}
 --- !u!1 &1630992992
 GameObject:
   m_ObjectHideFlags: 0
@@ -18731,7 +18730,7 @@ GameObject:
   - component: {fileID: 1646185650}
   - component: {fileID: 1646185653}
   - component: {fileID: 1646185652}
-  - component: {fileID: 1646185651}
+  - component: {fileID: 1646185654}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -18809,24 +18808,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1646185651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646185648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb30dd733e35534b85c6d10d3d6550b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 1646185650}
-  cld: {fileID: 1646185652}
-  animator: {fileID: 0}
-  useRigidbody: 1
-  rb2d: {fileID: 1646185653}
-  isImmortal: 1
 --- !u!60 &1646185652
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18876,6 +18857,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1646185654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646185648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3120e856b0034d4884055209a9fc5ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1672967281
 GameObject:
   m_ObjectHideFlags: 0

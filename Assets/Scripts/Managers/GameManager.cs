@@ -8,7 +8,7 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     public Transform player;
-    [HideInInspector] public PlayerBehavior playerScript;
+    [HideInInspector] public PlayerBehaviour playerScript;
 
     private float timeScale = 1f;
     public float TimeScale
@@ -26,7 +26,7 @@ public class GameManager : MonoSingleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        playerScript = player.GetComponent<PlayerBehavior>();
+        playerScript = player.GetComponent<PlayerBehaviour>();
     }
 
     #region Game manager

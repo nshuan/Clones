@@ -2,7 +2,7 @@ using Core.ObjectPooling;
 using Managers;
 using UnityEngine;
 
-namespace EnemyCore.State_Machine.EnemyStates
+namespace EnemyCore.State_Machine
 {
     public class EnemyAttackState : EnemyState
     {

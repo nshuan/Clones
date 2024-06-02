@@ -55,6 +55,6 @@ public class Inventory
 
     public void ReplaceGun(int slot, int newGunId)
     {
-        gunSlots[slot] = Mathf.Clamp(newGunId, 0, GunManager.Instance.gunCount - 1);
+        gunSlots[slot] = Mathf.Clamp(newGunId, 0, GunManager.Instance.GunCount - 1);
     }
 }

@@ -14,7 +14,7 @@ namespace Scripts.Home.Collections
 
         private void ShowVisual()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         private void ShowInfo()

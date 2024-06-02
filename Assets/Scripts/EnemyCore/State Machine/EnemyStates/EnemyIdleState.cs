@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EnemyCore.State_Machine.EnemyStates
+namespace EnemyCore.State_Machine
 {
     public class EnemyIdleState: EnemyState
     {

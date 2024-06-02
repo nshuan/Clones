@@ -19,10 +19,6 @@ public enum State
 public abstract class CharacterBehavior : MonoBehaviour
 {
     #region STATS
-    protected int maxHealth = 100;
-    protected int health;
-    protected int damage = 2;
-    protected float speed = 10;
     protected float timeScaleResistant = 0f;
     #endregion
 
@@ -84,125 +80,15 @@ public abstract class CharacterBehavior : MonoBehaviour
 
     protected virtual void Awake()
     {
-        health = maxHealth;
         bulletOffset = 1.5f;
 
         charState = State.stand;
     }
-
-    void FixedUpdate()
-    {
-        if (dashCdCounter < dashCooldown)
-        {
-            dashCdCounter += Time.deltaTime * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
-        }
-
-        switch (charState)
-        {
-            case State.stand:
-                Aim(tempAimTargetPos);
-
-                if (standCounter < standDuration) 
-                    standCounter += Time.deltaTime * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
-                else
-                {
-                    standCounter = 0f;
-                    charState = State.move;
-                }
-
-                break;
-            
-            case State.move:
-                Aim(tempAimTargetPos);
-                
-                if (useRigidbody)
-                {
-                    MoveWithRigidbody(tempMoveDirection);
-                }
-                else
-                {
-                    Move(tempMoveTargetPos);
-                }
-                break;
-            
-            case State.dash:
-                Aim(tempAimTargetPos);
-
-                if (Vector2.Distance(transform.position, slipTarget) > 0.1f && slipCounter < slipDuration)
-                {
-                    slipCounter += Time.deltaTime * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
-                    // transform.position = Vector2.SmoothDamp(transform.position, slipTarget, ref slipVel, 0.2f * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f));
-                    transform.position = Vector2.MoveTowards(transform.position, 
-                                            slipTarget, 0.02f * speed * dashSpeedScale * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f));
-                    break;
-                }
-
-                damageImmune = false;
-                charState = State.move;
-                break;
-
-            case State.freeze:
-                break;
-            
-            case State.bounce:
-                if (slipCounter < slipDuration)
-                {
-                    slipCounter += Time.deltaTime * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
-                    transform.position = Vector2.SmoothDamp(transform.position, slipTarget, ref slipVel, 0.2f * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f));
-                    break;
-                }
-                
-                charState = State.move;    
-                break;
-        }
-    }
-
-    #region Get things
-    public Collider2D GetCollider2D()
-    {
-        return this.cld;
-    }
-    #endregion
+    
 
     #region Movement
-    /// <summary>
-    /// Calculate the rotation of character. Character will face targetPos.
-    /// </summary>
-    /// <param name="targetPos"></param>
-    protected void Aim(Vector3 targetPos)
-    {
-        Vector2 direction = targetPos - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
-    }
-
-    /// <summary>
-    /// Calculate new position of character, using Vector2.MoveTowardS(...).
-    /// </summary>
-    /// <param name="targetPos"></param>
-    protected void Move(Vector3 targetPos)
-    {
-        transform.position = Vector2.MoveTowards(transform.position, 
-                                            targetPos, 0.02f * speed * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f));
-    }
-
-    /// <summary>
-    /// Calculate new position of character, using Rigidbody.
-    /// </summary>
-    /// <param name="direction"></param>
-    protected void MoveWithRigidbody(Vector2 direction)
-    {
-        // If the character is moving diagonally, speed is multiply by 1.35f
-        float speedScale = 1f;
-        if (Mathf.Abs(direction.x) > 0.5f && Mathf.Abs(direction.y) > 0.5f)
-        {
-            speedScale = 1.35f;
-        }
-
-        rb2d.velocity = direction.normalized * speed * speedScale * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
-    }
-
+   
+     
     /// <summary>
     /// Character can not move in the period of duration.
     /// </summary>
@@ -292,8 +178,12 @@ public abstract class CharacterBehavior : MonoBehaviour
 
             Vector2 originalDir = fireDirection.normalized;
             Vector2 deflection = Vector2.Perpendicular(originalDir) * Random.Range(-gun.GetSpread(), gun.GetSpread());
-            bullet.SetBulletStats(damage + gun.GetBaseDamage(), gun.GetBulletSpeed(), gun.GetBulletLifeLength(), originalDir + deflection, bulletColor - new Color(0f, 0f, 0f, 0.5f), LayerMask.LayerToName(gameObject.layer) + "Bullet");
+            // bullet.SetBulletStats(damage + gun.GetBaseDamage(), gun.GetBulletSpeed(), gun.GetBulletLifeLength(), originalDir + deflection, bulletColor - new Color(0f, 0f, 0f, 0.5f), LayerMask.LayerToName(gameObject.layer) + "Bullet");
+            
+            bullet.SetBulletStats(0 + gun.GetBaseDamage(), gun.GetBulletSpeed(), gun.GetBulletLifeLength(), originalDir + deflection, bulletColor - new Color(0f, 0f, 0f, 0.5f), LayerMask.LayerToName(gameObject.layer) + "Bullet");
         }
+        
+        
     }
     #endregion
 }

@@ -37,9 +37,9 @@ public class TheDot : CharacterBehavior
         gunBullet = gun.GetBullet();
         gunCooldown = 1 / 1.6f / gun.GetFireRate();
 
-        maxHealth = 1000;
-        health = maxHealth;
-        speed = 6;
+        // maxHealth = 1000;
+        // health = maxHealth;
+        // speed = 6;
         bulletOffset = 0f;
         soulFragment = 8;
     }
@@ -95,12 +95,12 @@ public class TheDot : CharacterBehavior
     public TheDot SetupStats(string name, int maxHealth, int soul, int damage, float speed, float attackRange, float sizeScale)
     {
         this.name = name;
-        this.maxHealth = maxHealth;
-        this.health = maxHealth;
+        // this.maxHealth = maxHealth;
+        // this.health = maxHealth;
         this.soulFragment = soul;
-        this.damage = damage;
-        this.speed = speed;
-        this.attackRange = attackRange;
+        // this.damage = damage;
+        // this.speed = speed;
+        // this.attackRange = attackRange;
         transform.localScale *= sizeScale;
 
         return this;
@@ -126,16 +126,17 @@ public class TheDot : CharacterBehavior
         Stand(1f);
         Bounce(transform.position - target.position, 3f / transform.localScale.x, 0.5f);
 
-        return damage;
+        // return damage;
+        return 0;
     }
 
     public override void Damaged(int value)
     {
         if (damageImmune) return;
         
-        health -= value;
-        UIManager.Instance.UpdateBossHealthBar(health, maxHealth);
-        if (health < maxHealth / 2)
+        // health -= value;
+        // UIManager.Instance.UpdateBossHealthBar(health, maxHealth);
+        // if (health < maxHealth / 2)
         {
             if (phase == 1)
             {
@@ -145,11 +146,11 @@ public class TheDot : CharacterBehavior
             }
         }
 
-        if (health < 0)
-        {
-            Die();
-            return;
-        }
+        // if (health < 0)
+        // {
+        //     Die();
+        //     return;
+        // }
 
     }
 

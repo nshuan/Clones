@@ -83,7 +83,7 @@ namespace EnemyCore.Behavior_Logic.Attack
 
                 Vector2 originalDir = _fireDirection.normalized;
                 Vector2 deflection = Vector2.Perpendicular(originalDir) * Random.Range(-_gun.GetSpread(), _gun.GetSpread());
-                bullet.SetBulletStats(EnemyRef.Stats.BaseDamage + _gun.GetBaseDamage(), _gun.GetBulletSpeed(), _gun.GetBulletLifeLength(), originalDir + deflection, BulletColor - new Color(0f, 0f, 0f, 0.5f), LayerMask.LayerToName(EnemyRef.gameObject.layer) + "Bullet");
+                bullet.SetBulletStats(EnemyRef.Stats.BaseDamage + _gun.GetBaseDamage(), _gun.GetBulletSpeed(), _gun.GetBulletLifeLength(), originalDir + deflection, BulletColor - new Color(0f, 0f, 0f, 0.5f), "EnemyBullet");
             }
         }
         

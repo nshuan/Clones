@@ -18,7 +18,7 @@ namespace Scripts.Home.Collections
         public void OnPointerClick(PointerEventData eventData)
         {
             Previewer.SetupPreview(ElementInfo);
-            if (Previewer.gameObject.activeSelf == false) Previewer.gameObject.SetActive(true);
+            if (Previewer.gameObject.activeInHierarchy == false) Previewer.gameObject.SetActive(true);
         }
     }
 

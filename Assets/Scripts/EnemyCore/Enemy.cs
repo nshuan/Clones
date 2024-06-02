@@ -5,13 +5,11 @@ using EnemyCore.Behavior_Logic.Chase;
 using EnemyCore.Behavior_Logic.Idle;
 using EnemyCore.EnemyData;
 using EnemyCore.State_Machine;
-using EnemyCore.State_Machine.EnemyStates;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace EnemyCore
 {
-    public class Enemy : PhysicalObjectBehavior, IDamageable, IMovable, ITriggerCheckable
+    public class Enemy : PhysicalObjectBehavior, IDamageable, ITriggerCheckable
     {
         public Transform Target { get; private set; }
         
@@ -119,27 +117,10 @@ namespace EnemyCore
             Destroy(gameObject);
         }
 
-        public void Aim(Vector3 targetPos)
+        public override void Move()
         {
-            Vector2 direction = targetPos - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        }
-
-        public void Move(Vector3 targetPos)
-        {
-            const int speed = 2;
             const float timeScaleResistant = 1f;
-
-            Velocity = 0.02f * speed * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
-            
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, Velocity);
-        }
-
-        public void MoveRb(Vector2 direction)
-        {
-            throw new System.NotImplementedException();
+            MoveWithoutRb(Target.position, Stats.Speed, timeScaleResistant);
         }
 
         #region Animation Triggers

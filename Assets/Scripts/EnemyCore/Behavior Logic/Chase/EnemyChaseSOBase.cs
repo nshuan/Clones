@@ -27,14 +27,7 @@ namespace EnemyCore.Behavior_Logic.Chase
             if (EnemyRef.IsWithinStrikingDistance) EnemyRef.StateMachine.ChangeState(EnemyRef.AttackState);
         }
 
-        public virtual void DoPhysicsUpdateLogic()
-        {
-            if (Equals(Target, null)) return;
-            
-            EnemyRef.Aim(Target.position);
-            EnemyRef.Move(Target.position);
-        }
-        
+        public virtual void DoPhysicsUpdateLogic() { }
         public virtual void DoAnimationTriggerEventLogic(AnimationTriggerType triggerType) { }
         public virtual void ResetValue() { }
     }

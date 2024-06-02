@@ -27,7 +27,7 @@ namespace EnemyCore.Behavior_Logic.Chase
             if (Target is null) return;
             
             EnemyRef.Aim(Target.position);
-            EnemyRef.Move(Target.position);
+            EnemyRef.Move();
         }
 
         public override void DoAnimationTriggerEventLogic(AnimationTriggerType triggerType)
