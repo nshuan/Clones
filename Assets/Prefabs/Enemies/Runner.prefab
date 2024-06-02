@@ -14997,7 +14997,7 @@ MonoBehaviour:
     <Speed>k__BackingField: 6
     <AttackRange>k__BackingField: 0
     <SizeScale>k__BackingField: 0.8
-    <VisualColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+    <VisualColor>k__BackingField: {r: 1, g: 1, b: 0, a: 1}
     <HasGun>k__BackingField: 0
     <GunType>k__BackingField: 0
     <SoulFragment>k__BackingField: 1
