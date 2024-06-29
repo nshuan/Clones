@@ -8,7 +8,7 @@ public class BulletBlossom : BulletBehavior
 {
     [SerializeField] private BulletBehavior childBullet;
     [SerializeField] private float childScale;
-
+    
     public override void BulletHit(Transform obstacle)
     {
         Blossom();

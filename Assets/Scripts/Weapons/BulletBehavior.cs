@@ -29,7 +29,7 @@ public abstract class BulletBehavior : MonoBehaviour
         if (lifeCount < lifeLength)
             lifeCount += Time.deltaTime * GameManager.Instance.TimeScale;
         else
-            DestroyBullet();
+            BulletHit(null);
 
         Move();
         CheckHit();

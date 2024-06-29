@@ -14,7 +14,7 @@ namespace Scripts.Home.SelectCharacter
         
         private void OnEnable()
         {
-            fullPreviewer.gameObject.SetActive(false);
+            // fullPreviewer.gameObject.SetActive(false);
             LoadCharactersData();
             OnDataLoaded();
         }

@@ -75,11 +75,19 @@ namespace Managers
         {
             onSwitchGun?.Invoke();
         }
-        #endregion   
         
         public void OnQuitGunReplacement(InputAction.CallbackContext context)
         {
             onQuitGunReplacement?.Invoke();
+        }
+        #endregion
+
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if (GameManager.Instance.IsPausing)
+                GameManager.Instance.ResumeGame();
+            else
+                GameManager.Instance.PauseGame();
         }
     }
 }

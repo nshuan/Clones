@@ -119,7 +119,7 @@ namespace EnemyCore
 
         public override void Move()
         {
-            const float timeScaleResistant = 1f;
+            const float timeScaleResistant = 0f;
             MoveWithoutRb(Target.position, Stats.Speed, timeScaleResistant);
         }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Core.DataHandle;
+using EasyButtons;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -40,6 +41,13 @@ namespace Scripts.PlayerSettings
         {
             var charactersAsset = Resources.LoadAll<PlayerCharacterSO>(CharactersCollectionPath);
             characters = charactersAsset.ToList();
+        }
+
+        [Button]
+        private void ResetUnlockStatus()
+        {
+            var status = new CharacterUnlockStatus(characters);
+            DataHandler.Save<CharacterUnlockStatus>(CharacterUnlockStatusKey, status);
         }
     }
 

@@ -11,7 +11,7 @@ public class BulletStandard : BulletBehavior
     {
         // destroyFx.transform.SetParent(null);
         // destroyFx.Play();
-        // DestroyBullet();
+        DestroyBullet();
     }
 
     protected override void SetupTrail(Color color)

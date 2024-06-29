@@ -13,7 +13,7 @@ namespace EnemyCore.Behavior_Logic.Attack
         private float _gunCdCounter = 0f;
         private Vector2 _fireDirection;
         
-        protected float TimeScaleResistant = 1f;
+        protected float TimeScaleResistant = 0f;
         protected float BulletOffset = 1.5f;
         protected Color BulletColor = Color.red;
         

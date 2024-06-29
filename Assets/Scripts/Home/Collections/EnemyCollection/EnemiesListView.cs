@@ -12,7 +12,6 @@ namespace Scripts.Home.Collections
         
         private void OnEnable()
         {
-            previewer.gameObject.SetActive(false);
             LoadEnemyData();
             OnDataLoaded();
         }

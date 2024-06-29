@@ -12,7 +12,8 @@ namespace PlayerCore.State_Machine
 
         public void ChangeState(PlayerState newState)
         {
-            if (!CurrentState.CanForceChangeState) return;
+            if (!Equals(newState, CurrentState) && !CurrentState.CanForceChangeState) return;
+            if (Equals(newState, CurrentState) && !CurrentState.CanChangeStateToSelf) return;
             CurrentState.ExitState();
             CurrentState = newState;
             CurrentState.EnterState();

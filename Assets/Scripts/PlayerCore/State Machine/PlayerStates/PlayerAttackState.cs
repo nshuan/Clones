@@ -68,7 +68,7 @@ namespace PlayerCore.State_Machine
                 
                 Vector2 deflection = Vector2.Perpendicular(direction) * Random.Range(-gun.GetSpread(), gun.GetSpread());
             
-                bullet.SetBulletStats(0 + gun.GetBaseDamage(), gun.GetBulletSpeed(), gun.GetBulletLifeLength(), direction + deflection, _bulletColor - new Color(0f, 0f, 0f, 0.5f), "PlayerBullet");
+                bullet.SetBulletStats(Player.BaseDamage + gun.GetBaseDamage(), gun.GetBulletSpeed(), gun.GetBulletLifeLength(), direction + deflection, _bulletColor - new Color(0f, 0f, 0f, 0.5f), "PlayerBullet");
             }
         }
     }

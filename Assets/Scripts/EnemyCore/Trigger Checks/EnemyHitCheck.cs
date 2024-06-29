@@ -1,4 +1,5 @@
 using System;
+using Core.ObjectPooling;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -56,6 +57,7 @@ namespace EnemyCore.Trigger_Checks
                     Debug.Log("---- Enemy " + _enemy.gameObject.name + " hurt " + bullet.Damage);
 #endif
                     _enemy.Damage(bullet.Damage);
+                    PoolManager.Instance.Release(bullet);
                 }
             }
         }

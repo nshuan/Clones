@@ -7,5 +7,6 @@ namespace PlayerCore.State_Machine
         }
 
         public override bool CanForceChangeState => false;
+        public override bool CanChangeStateToSelf => false;
     }
 }

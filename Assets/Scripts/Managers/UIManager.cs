@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UI.InGame;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text timerText;
-    [SerializeField] private TMP_Text gunNameText;
     [SerializeField] private TMP_Text soulText;
     [SerializeField] private TMP_Text coinText;
     [SerializeField] private TMP_Text levelText;
@@ -51,11 +51,7 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region Gameover
-    [SerializeField] private GameObject gameoverBoard;
-    [SerializeField] private TMP_Text finalScore;
-    [SerializeField] private TMP_Text finalTime;
-    [SerializeField] private TMP_Text finalCoin;
-    [SerializeField] private TMP_Text finalSoul;
+    [SerializeField] private GameOverPresenter gameOverPresenter;
     #endregion
 
     void Awake()
@@ -91,13 +87,8 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
-        finalScore.text = scoreText.text;
-        finalTime.text = timerText.text;
-        finalCoin.text = coinText.text;
-        finalSoul.text = soulText.text;
-
         inforBoard.gameObject.SetActive(false);
-        gameoverBoard.SetActive(true);
+        gameOverPresenter.SetupGameOver(scoreText.text, timerText.text, coinText.text, soulText.text);
     }
 
     #region Informations
@@ -116,11 +107,6 @@ public class UIManager : MonoBehaviour
         timerOn = false;
 
         return timeCounter;
-    }
-
-    public void UpdateGunName(string name)
-    {
-        gunNameText.text = name;
     }
 
     public void UpdateSoul(int value)
@@ -164,7 +150,7 @@ public class UIManager : MonoBehaviour
     {
         replacingGun = true;
 
-        replaceGunBoard.SetupCards(ref GameManager.Instance.playerScript.inventory, newGunId);
+        // replaceGunBoard.SetupCards(ref GameManager.Instance.playerScript.inventory, newGunId);
         replaceGunBoard.gameObject.SetActive(true);
     }
     #endregion

@@ -7,7 +7,7 @@ namespace Scripts.Home.SelectCharacter
     {
         [SerializeField] private GameObject popup;
         
-        public void OnPointerClick(PointerEventData eventData)
+        public virtual void OnPointerClick(PointerEventData eventData)
         {
             if (popup == null) return;
             popup.SetActive(false);

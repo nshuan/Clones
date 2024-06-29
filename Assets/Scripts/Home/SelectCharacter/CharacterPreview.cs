@@ -1,5 +1,6 @@
 using System;
 using Managers;
+using Scripts.Home.Buttons;
 using Scripts.PlayerSettings;
 using TMPro;
 using UnityEngine;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Scripts.Home.SelectCharacter
 {
-    public class CharacterPreview : MonoBehaviour
+    public class CharacterPreview : HomeMenuPopup
     {
         [SerializeField] private SelectCharacterButton selectButton;
         [SerializeField] private UnlockCharacterButton unlockButton;
@@ -20,6 +21,8 @@ namespace Scripts.Home.SelectCharacter
 
         private void OnEnable()
         {
+            InitPreview();
+            
             PlayerManager.OnChangeCharacter += OnChangeCharacter;
             PlayerManager.OnUnlockCharacter += OnUnlockCharacter;
         }
@@ -30,9 +33,20 @@ namespace Scripts.Home.SelectCharacter
             PlayerManager.OnUnlockCharacter -= OnUnlockCharacter;
         }
 
+        private void InitPreview()
+        {
+            bigImage.gameObject.SetActive(false);    
+            dataPreview.HideData();
+            selectButton.gameObject.SetActive(false);
+            unlockButton.gameObject.SetActive(false);
+        }
+        
         public void Setup(PlayerCharacterSO characterData)
         {
             _characterData = characterData;
+            
+            bigImage.gameObject.SetActive(true);    
+            dataPreview.ShowData();
             
             bigImage.sprite = _characterData.AvatarSprite;
             bigImage.color = _characterData.Color;

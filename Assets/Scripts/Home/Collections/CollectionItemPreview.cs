@@ -13,6 +13,7 @@ namespace Scripts.Home.Collections
             ShowPreview(PreviewInfo);
         }
 
+        protected abstract void InitPreview();
         protected abstract void ShowPreview(TInfo info);
     }
 }

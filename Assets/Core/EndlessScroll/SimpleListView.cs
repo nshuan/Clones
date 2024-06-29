@@ -12,7 +12,7 @@ namespace Core.EndlessScroll
     public class SimpleListView : MonoBehaviour
     {
         public List<SimpleCell.ICellData> data = new();
-        [SerializeField] private Layout layout = new Vertical();
+        [SerializeField] private Layout layout = new Horizontal();
         [SerializeField] private Order order = new Ascending();
         [SerializeField] private float spacing;
         [SerializeField] private bool alignCenterIfFitContent;

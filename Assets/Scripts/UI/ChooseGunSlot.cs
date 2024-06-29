@@ -49,7 +49,7 @@ public class ChooseGunSlot : MonoBehaviour
     public void OnClickedCard()
     {
         inventory.ReplaceGun(EventSystem.current.currentSelectedGameObject.transform.GetSiblingIndex() - 1, newGunId);
-        GameManager.Instance.playerScript.UpdateGun();
+        // GameManager.Instance.playerScript.UpdateGun();
         EndChoosing();
     }
 

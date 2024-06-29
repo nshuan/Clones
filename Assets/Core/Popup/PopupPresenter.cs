@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Core.Popup
 {
-    public abstract class PopupPresenter : MonoBehaviour, IPopupPresenter
+    public abstract class PopupPresenter<T> : MonoBehaviour, IPopupPresenter where  T : MonoBehaviour, IPopup
     {
-        [SerializeField] private GameObject popup;
+        [SerializeField] private T popup;
         private Canvas _canvas;
 
-        private GameObject _popupCache;
+        protected T PopupCache;
 
         protected virtual void Awake()
         {
@@ -17,32 +17,37 @@ namespace Core.Popup
 
         public virtual void OnShowPopup()
         {
-            if (Equals(_popupCache, null))
+            if (Equals(PopupCache, null))
             {
-                if (Equals(popup.activeSelf, false))
+                if (Equals(popup.gameObject.activeSelf, false))
                 {
                     Debug.LogWarning("Popup reference has not been set!");
                 }
-                var prefabStatus = popup.activeSelf;
-                popup.SetActive(false);
-                _popupCache = Instantiate(popup, _canvas.transform);
-                popup.SetActive(prefabStatus);
+                var prefabStatus = popup.gameObject.activeSelf;
+                popup.gameObject.SetActive(false);
+                PopupCache = Instantiate(popup, _canvas.transform);
+                popup.gameObject.SetActive(prefabStatus);
             }    
             
-            _popupCache.SetActive(true);
+            PopupCache.gameObject.SetActive(true);
         }
 
         public virtual void OnShowPopup(Transform parent)
         {
-            if (Equals(_popupCache, null))
+            if (Equals(PopupCache, null))
             {
-                var prefabStatus = popup.activeSelf;
-                popup.SetActive(false);
-                _popupCache = Instantiate(popup, parent);
-                popup.SetActive(prefabStatus);
+                var prefabStatus = popup.gameObject.activeSelf;
+                popup.gameObject.SetActive(false);
+                PopupCache = Instantiate(popup, parent);
+                popup.gameObject.SetActive(prefabStatus);
             }    
             
-            _popupCache.SetActive(true);
+            PopupCache.gameObject.SetActive(true);
         }
+    }
+
+    public interface IPopup
+    {
+        
     }
 }

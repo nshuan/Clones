@@ -10,7 +10,7 @@ using UnityEngine;
 /// Can switch gun and be healed.
 /// </summary>/
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerBehaviour : CharacterBehavior
+public class PlayerBehaviour_old : CharacterBehavior
 {
     [HideInInspector] public Inventory inventory;
     private PlayerCharacterSO _charData;
@@ -138,7 +138,7 @@ public class PlayerBehaviour : CharacterBehavior
         inventory = new Inventory(gun);
         gunBullet = gun.GetBullet();
         bulletColor = spriteRenderer.color;
-        UIManager.Instance.UpdateGunName(gun.GetName());
+        // UIManager.Instance.UpdateGunName(gun.GetName());
     }
 
     #region Player input
@@ -226,7 +226,7 @@ public class PlayerBehaviour : CharacterBehavior
     {
         gun = GunManager.Instance.GetGun(inventory.GetCurrentGunId());
         gunBullet = gun.GetBullet();
-        UIManager.Instance.UpdateGunName(gun.GetName());
+        // UIManager.Instance.UpdateGunName(gun.GetName());
     }
 
     public override void Damaged(int value)

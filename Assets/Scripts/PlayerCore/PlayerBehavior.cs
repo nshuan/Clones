@@ -1,5 +1,6 @@
 using System;
 using Character.Interfaces;
+using Effects;
 using Managers;
 using PlayerCore.State_Machine;
 using Scripts.PlayerSettings;
@@ -24,6 +25,7 @@ namespace PlayerCore
         #endregion
 
         private Rigidbody2D _rb2d;
+        [SerializeField] private SpriteRenderer spriteRenderer;
         
         
         public PlayerCharacterSO PlayerData { get; private set; }
@@ -37,6 +39,8 @@ namespace PlayerCore
 
         public Vector2 TempMoveDirection { get; set; }
         public Vector2 TempMousePosition { get; set; }
+        public Transform TempHitObject { get; set; }
+        public override Vector2 Velocity => _rb2d.velocity;
 
         #endregion
         
@@ -46,6 +50,9 @@ namespace PlayerCore
 
             PlayerData = PlayerManager.Instance.CurrentCharacter;
             CurrentGun = GunManager.Instance.GetGun(PlayerData.DefaultGun);
+            // Setup visual
+            spriteRenderer.sprite = PlayerData.AvatarSprite;
+            spriteRenderer.color = PlayerData.Color;
             
             StateMachine = new PlayerStateMachine();
             IdleState = new PlayerStandState(this, StateMachine);
@@ -59,33 +66,57 @@ namespace PlayerCore
             PlayerInputActionManager.onAim += OnAim;
             PlayerInputActionManager.onDash += OnDash;
             PlayerInputActionManager.onFire += OnFire;
+            PlayerInputActionManager.onSwitchGun += OnSwitchGun;
+        }
+
+        private void OnDestroy()
+        {
+            PlayerInputActionManager.onMove -= OnMove;
+            PlayerInputActionManager.onAim -= OnAim;
+            PlayerInputActionManager.onDash -= OnDash;
+            PlayerInputActionManager.onFire -= OnFire;
+            PlayerInputActionManager.onSwitchGun -= OnSwitchGun;
         }
 
         private void Start()
         {
+            CurrentHealth = MaxHealth;
+            
             StateMachine.Initialize(IdleState);
         }
 
         private void Update()
         {
+            if (GameManager.Instance.IsPausing) return;
+            
             StateMachine.CurrentState.FrameUpdate();
             AttackState.FrameUpdate();
         }
 
         private void FixedUpdate()
         {
+            if (GameManager.Instance.IsPausing) return;
+            
             StateMachine.CurrentState.PhysicsUpdate();
+            BounceState.PhysicsUpdate();
         }
 
 
         public void Damage(int value)
         {
-            throw new System.NotImplementedException();
+            
+            // Decrease health
+            CurrentHealth -= value;
+            UIManager.Instance.UpdateHealthBar(CurrentHealth, MaxHealth);
+            
+            if (CurrentHealth < 0)
+                Die();
         }
 
         public void Die()
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.GameOver();
+            // Destroy(gameObject);
         }
 
         public override void Move()
@@ -115,6 +146,11 @@ namespace PlayerCore
         {
             if (firing) AttackState.EnterState();
             else AttackState.ExitState();
+        }
+
+        protected void OnSwitchGun()
+        {
+            
         }
 
         #endregion

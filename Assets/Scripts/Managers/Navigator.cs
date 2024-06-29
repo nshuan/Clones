@@ -15,18 +15,18 @@ public class Navigator : MonoBehaviour
         SceneManager.LoadScene(index, LoadSceneMode.Single);
     }
 
-    public void LoadGameScene()
+    public static void LoadGameScene()
     {
         PlayerData.ResetData();
         SceneManager.LoadScene("GamePlay", LoadSceneMode.Single);
     }
 
-    public void LoadMenuScene()
+    public static void LoadMenuScene()
     {
         SceneManager.LoadScene("Home");
     }
 
-    public void ExitGame()
+    public static void ExitGame()
     {
         Application.Quit();
     }

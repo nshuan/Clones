@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Core;
+using EasyButtons;
 using Managers;
+using PlayerCore;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
     public Transform player;
-    [HideInInspector] public PlayerBehaviour playerScript;
+    [HideInInspector] public PlayerBehavior playerScript;
 
     private float timeScale = 1f;
     public float TimeScale
@@ -20,25 +22,27 @@ public class GameManager : MonoSingleton<GameManager>
             timeScale = value;
         }
     }
+    
+    public bool IsPausing { get; private set; }
 
     public static event Action<int> OnPlayerLevelUp; 
     
     protected override void Awake()
     {
         base.Awake();
-        playerScript = player.GetComponent<PlayerBehaviour>();
+        playerScript = player.GetComponent<PlayerBehavior>();
     }
 
     #region Game manager
     public void FreezeGame()
     {
-        playerScript.Freeze();
+        // playerScript.Freeze();
         timeScale = 0.02f;
     }
 
     public void ThawGame()
     {
-        playerScript.Thaw();
+        // playerScript.Thaw();
         timeScale = 1f;
     }
 
@@ -53,7 +57,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void BossFightPrepare()
     {
         TimeScale = 0.1f;
-        playerScript.Freeze();
+        // playerScript.Freeze();
         CameraManager.Instance.ChangeTarget(EnemyManager.Instance.currentBoss);
         UIManager.Instance.BossFightIntro(2f);
     }
@@ -61,7 +65,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void BossFightStart()
     {
         TimeScale = 1f;
-        playerScript.Thaw();
+        // playerScript.Thaw();
         CameraManager.Instance.ChangeTarget(player);
         UIManager.Instance.BossFightUI(EnemyManager.Instance.currentBossName);
 
@@ -88,7 +92,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void HealPlayer(int value)
     {
         if (player == null) return;
-        playerScript.Heal(value);
+        // playerScript.Heal(value);
         UIManager.Instance.CreateFloatText(player, value, Color.green);
     }
 
@@ -124,6 +128,20 @@ public class GameManager : MonoSingleton<GameManager>
         UIManager.Instance.UpdateCoin(PlayerData.Coin); 
     }
     #endregion
+
+    [Button]
+    public void PauseGame()
+    {
+        IsPausing = true;
+        timeScale = 0f;
+    }
+
+    [Button]
+    public void ResumeGame()
+    {
+        IsPausing = false;
+        timeScale = 1f;
+    }
 }
 
 public static class PlayerData

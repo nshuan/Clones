@@ -1,10 +1,11 @@
 using Character.Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class PhysicalObjectBehavior : MonoBehaviour, IMovable
 {
     public float Weight { get; protected set; }
-    public float Velocity { get; protected set; } // Pixel per second
+    public virtual Vector2 Velocity { get; protected set; }// Pixel per second
     
     
     public void Aim(Vector3 target)
@@ -17,9 +18,10 @@ public abstract class PhysicalObjectBehavior : MonoBehaviour, IMovable
 
     public void MoveWithoutRb(Vector3 target, float speed, float timeScaleResistant)
     {
-        Velocity = 0.02f * speed * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
+        var velMagnitude = 0.02f * speed * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f);
+        Velocity = velMagnitude * Vector2.one;
             
-        transform.position = Vector2.MoveTowards(transform.position, target, Velocity);
+        transform.position = Vector2.MoveTowards(transform.position, target, velMagnitude);
     }
     
     public void MoveWithRb(Rigidbody2D rb2d, Vector2 direction, float speed, float timeScaleResistant)

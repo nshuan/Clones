@@ -1,3 +1,4 @@
+using Core.ObjectPooling;
 using UnityEngine;
 
 namespace PlayerCore.Trigger_Checks
@@ -29,8 +30,9 @@ namespace PlayerCore.Trigger_Checks
 #endif
                 var enemy = collision.gameObject.transform;
                 var dmg = (int)(enemy.localScale.magnitude / transform.localScale.magnitude * Player.BaseDamage);
+                Player.TempHitObject = enemy;
                 Player.Damage(dmg);
-                Player.StateMachine.ChangeState(Player.BounceState);
+                // Player.BounceState.EnterState();
             }
         }
         
@@ -53,6 +55,7 @@ namespace PlayerCore.Trigger_Checks
                     Debug.Log("---- Player hurt " + bullet.Damage);
 #endif
                     Player.Damage(bullet.Damage);
+                    PoolManager.Instance.Release(bullet);
                 }
             }
         }

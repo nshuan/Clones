@@ -14,6 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnerThresholds:
   - <LevelThreshold>k__BackingField: 0
+    <MaxSpawnedEnemy>k__BackingField: 8
+    <SpawnRate>k__BackingField: 2
+    <SpawnableTypes>k__BackingField:
+    - <EnemyType>k__BackingField: 0
+      <Chance>k__BackingField: 0.2
+    - <EnemyType>k__BackingField: 1
+      <Chance>k__BackingField: 0.2
+    - <EnemyType>k__BackingField: 2
+      <Chance>k__BackingField: 0.2
+    - <EnemyType>k__BackingField: 3
+      <Chance>k__BackingField: 0.2
+    - <EnemyType>k__BackingField: 4
+      <Chance>k__BackingField: 0.2
+    <IsBossLevel>k__BackingField: 0
+  - <LevelThreshold>k__BackingField: 1
     <MaxSpawnedEnemy>k__BackingField: 4
     <SpawnRate>k__BackingField: 0.5
     <SpawnableTypes>k__BackingField:

@@ -4,7 +4,8 @@ namespace PlayerCore.State_Machine
     {
         protected PlayerBehavior Player;
         protected PlayerStateMachine StateMachine;
-        public virtual bool CanForceChangeState => true;
+        public virtual bool CanForceChangeState { get; protected set; } = true;
+        public virtual bool CanChangeStateToSelf => true;
 
         public PlayerState(PlayerBehavior player, PlayerStateMachine stateMachine)
         {

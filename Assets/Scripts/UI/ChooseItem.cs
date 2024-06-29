@@ -41,7 +41,7 @@ public class ChooseItem : MonoBehaviour
     public void OnClickedItemCard()
     {
         items[EventSystem.current.currentSelectedGameObject.transform.GetSiblingIndex()].BreakCrystal();
-        GameManager.Instance.playerScript.UpdateGun();
+        // GameManager.Instance.playerScript.UpdateGun();
         EndChoosing();
     }
 
