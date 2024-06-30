@@ -1,6 +1,9 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using Core;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Managers
 {
@@ -23,7 +26,21 @@ namespace Managers
 
         public Gun GetRandomGun()
         {
-            return Collection.guns[UnityEngine.Random.Range(0, Collection.guns.Count)];
+            return Collection.guns[Random.Range(0, Collection.guns.Count)];
+        }
+
+        public Gun GetRandomGunExcept(Gun except)
+        {
+            var random = new System.Random();
+            var filteredList = Collection.guns.FindAll(element => !EqualityComparer<Gun>.Default.Equals(element, except));
+        
+            if (filteredList.Count == 0)
+            {
+                return except;
+            }
+
+            var index = random.Next(filteredList.Count);
+            return filteredList[index];
         }
     }
 }

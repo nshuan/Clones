@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UI.HUD;
 using UI.InGame;
 
 public class UIManager : MonoBehaviour
@@ -12,12 +13,7 @@ public class UIManager : MonoBehaviour
     [Header("Player data")]
     [SerializeField] private Transform inforBoard;
 
-    [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private TMP_Text timerText;
-    [SerializeField] private TMP_Text soulText;
-    [SerializeField] private TMP_Text coinText;
-    [SerializeField] private TMP_Text levelText;
-    [SerializeField] private Slider healthBar;
+    [SerializeField] private HeadUpDisplay hud;
 
     #region Boss Informations
     [SerializeField] private Transform bossInforBoard;
@@ -57,10 +53,6 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-
-        healthBar.maxValue = 1f;
-        healthBar.minValue = 0f;
-        healthBar.value = 1f;
     }
 
     void Update()
@@ -88,18 +80,22 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         inforBoard.gameObject.SetActive(false);
-        gameOverPresenter.SetupGameOver(scoreText.text, timerText.text, coinText.text, soulText.text);
+        gameOverPresenter.SetupGameOver(
+            hud.Score.ToString(), 
+            hud.TimePlayed.ToString("0.00"), 
+            hud.Coin.ToString(), 
+            hud.Soul.ToString());
     }
 
     #region Informations
     public void UpdateScore(int value)
     {
-        scoreText.text = value.ToString();
+        hud.Score = value;
     }
 
     public void UpdateTimer(float value)
     {
-        timerText.text = value.ToString("0.00");
+        hud.TimePlayed = value;
     }
 
     public float StopTimer()
@@ -111,23 +107,23 @@ public class UIManager : MonoBehaviour
 
     public void UpdateSoul(int value)
     {
-        soulText.text = value.ToString();
+        hud.Soul = value;
     }
 
     public void UpdateCoin(int value)
     {
-        coinText.text = value.ToString();
+        hud.Coin = value;
     }
 
     public void UpdateLevel(int value)
     {
-        levelText.text = value.ToString();
+        hud.Level = value;
     }
 
     public void UpdateHealthBar(int remainHealth, int maxHealth)
     {
         remainHealth = Mathf.Max(remainHealth, 0);
-        healthBar.value = ((float) remainHealth / maxHealth) * healthBar.maxValue;
+        hud.UpdateHealthBar((float) remainHealth / maxHealth);
     }
     #endregion
 

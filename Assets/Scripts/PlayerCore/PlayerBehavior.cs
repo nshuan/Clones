@@ -34,6 +34,7 @@ namespace PlayerCore
         public int CurrentHealth { get; set; }
         public float TimeScaleResistant => 1f;
         public Gun CurrentGun { get; private set; }
+        private Gun SecondGun { get; set; }
 
         #region Temporary
 
@@ -43,6 +44,8 @@ namespace PlayerCore
         public override Vector2 Velocity => _rb2d.velocity;
 
         #endregion
+
+        public static event Action<Gun> OnPlayerGunSwitched; 
         
         private void Awake()
         {
@@ -50,6 +53,8 @@ namespace PlayerCore
 
             PlayerData = PlayerManager.Instance.CurrentCharacter;
             CurrentGun = GunManager.Instance.GetGun(PlayerData.DefaultGun);
+            SecondGun = GunManager.Instance.GetRandomGunExcept(CurrentGun);
+            
             // Setup visual
             spriteRenderer.sprite = PlayerData.AvatarSprite;
             spriteRenderer.color = PlayerData.Color;
@@ -76,6 +81,8 @@ namespace PlayerCore
             PlayerInputActionManager.onDash -= OnDash;
             PlayerInputActionManager.onFire -= OnFire;
             PlayerInputActionManager.onSwitchGun -= OnSwitchGun;
+
+            OnPlayerGunSwitched = null;
         }
 
         private void Start()
@@ -104,7 +111,7 @@ namespace PlayerCore
 
         public void Damage(int value)
         {
-            
+            if (Equals(StateMachine.CurrentState, DashState)) return;
             // Decrease health
             CurrentHealth -= value;
             UIManager.Instance.UpdateHealthBar(CurrentHealth, MaxHealth);
@@ -117,11 +124,23 @@ namespace PlayerCore
         {
             GameManager.Instance.GameOver();
             // Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         public override void Move()
         {
             MoveWithRb(_rb2d, TempMoveDirection, PlayerData.Speed, TimeScaleResistant);
+        }
+
+        public void Move(Vector2 direction, float speed)
+        {
+            MoveWithRb(_rb2d, direction, speed, TimeScaleResistant);
+        }
+
+        public void Stand()
+        {
+            _rb2d.velocity = Vector2.zero;
+            StateMachine.ChangeState(IdleState);
         }
 
         #region PlayerInput
@@ -139,7 +158,8 @@ namespace PlayerCore
 
         protected void OnDash()
         {
-            // Dash(TempMousePosition - (Vector2) transform.position, 8f, 3.6f);
+            DashState.Direction = (TempMousePosition - (Vector2)transform.position).normalized;
+            StateMachine.ChangeState(DashState);
         }
 
         protected void OnFire(bool firing)
@@ -150,7 +170,8 @@ namespace PlayerCore
 
         protected void OnSwitchGun()
         {
-            
+            (CurrentGun, SecondGun) = (SecondGun, CurrentGun);
+            OnPlayerGunSwitched?.Invoke(CurrentGun);
         }
 
         #endregion

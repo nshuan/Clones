@@ -52,7 +52,7 @@ namespace PlayerCore.Trigger_Checks
                 if (hit.collider.gameObject.TryGetComponent<BulletBehavior>(out var bullet))
                 {
 #if UNITY_EDITOR
-                    Debug.Log("---- Player hurt " + bullet.Damage);
+                    // Debug.Log("---- Player hurt " + bullet.Damage);
 #endif
                     Player.Damage(bullet.Damage);
                     PoolManager.Instance.Release(bullet);

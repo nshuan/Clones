@@ -133,6 +133,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void PauseGame()
     {
         IsPausing = true;
+        playerScript.Stand();
         timeScale = 0f;
     }
 
