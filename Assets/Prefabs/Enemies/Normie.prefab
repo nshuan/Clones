@@ -15001,7 +15001,8 @@ MonoBehaviour:
     <HasGun>k__BackingField: 1
     <GunType>k__BackingField: 0
     <SoulFragment>k__BackingField: 1
-    <Coin>k__BackingField: 0
+    <Coin>k__BackingField: 10
+    <TimeScaleResistant>k__BackingField: 0
 --- !u!1 &7682142685753565135
 GameObject:
   m_ObjectHideFlags: 0

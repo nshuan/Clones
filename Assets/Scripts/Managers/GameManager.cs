@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Core;
 using EasyButtons;
 using Managers;
+using Managers.Spawner;
 using PlayerCore;
 using UnityEngine;
 
@@ -44,22 +45,6 @@ public class GameManager : MonoSingleton<GameManager>
     {
         // playerScript.Thaw();
         timeScale = 1f;
-    }
-
-    public void SummonBoss()
-    {
-        if (EnemyManager.Instance.bossing) return;
-
-        EnemyManager.Instance.SpawnBoss();
-        BossFightPrepare();
-    }
-
-    public void BossFightPrepare()
-    {
-        TimeScale = 0.1f;
-        // playerScript.Freeze();
-        CameraManager.Instance.ChangeTarget(EnemyManager.Instance.currentBoss);
-        UIManager.Instance.BossFightIntro(2f);
     }
 
     public void BossFightStart()
@@ -111,9 +96,6 @@ public class GameManager : MonoSingleton<GameManager>
         var currentLevel = PlayerData.Level;
         PlayerData.UpdateLevel(PlayerData.SoulFragment / 8 + 1);
         if (PlayerData.Level > currentLevel) OnPlayerLevelUp?.Invoke(PlayerData.Level);
-
-        if (PlayerData.Level % 5 == 0)
-            SummonBoss();
 
         // UI
         UIManager.Instance.UpdateSoul(PlayerData.SoulFragment);

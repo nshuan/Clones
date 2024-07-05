@@ -12,6 +12,7 @@ public class BulletBlossom : BulletBehavior
     public override void BulletHit(Transform obstacle)
     {
         Blossom();
+        lifeCount = 0f;
         DestroyBullet();
     }
 

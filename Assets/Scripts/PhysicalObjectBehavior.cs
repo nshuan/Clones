@@ -35,6 +35,8 @@ public abstract class PhysicalObjectBehavior : MonoBehaviour, IMovable
 
         rb2d.velocity = direction.normalized * (speed * speedScale * Mathf.Clamp(GameManager.Instance.TimeScale + timeScaleResistant, 0f, 1f));
     }
-
+    
     public abstract void Move();
+    public virtual void Stand() { }
+    
 }

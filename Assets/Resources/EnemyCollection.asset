@@ -23,3 +23,9 @@ MonoBehaviour:
     <EnemyPrefab>k__BackingField: {fileID: 1977049140517823789, guid: f9fd4ece4c15eff4ab95c7e7b1f88b03, type: 3}
   - <EnemyType>k__BackingField: 4
     <EnemyPrefab>k__BackingField: {fileID: 1977049140517823789, guid: 1ee9e8dd6e89e124ab4ec5194b498237, type: 3}
+  - <EnemyType>k__BackingField: 5
+    <EnemyPrefab>k__BackingField: {fileID: 1977049140517823789, guid: 33f6c6f6cdbd5e04e8c644dc0e43999e, type: 3}
+  - <EnemyType>k__BackingField: 6
+    <EnemyPrefab>k__BackingField: {fileID: 1977049140517823789, guid: 6ffd89c84bbb256499303218bfd95459, type: 3}
+  - <EnemyType>k__BackingField: 7
+    <EnemyPrefab>k__BackingField: {fileID: 1977049140517823789, guid: 8deaa8688b42133498f2a2b8eaf833ac, type: 3}

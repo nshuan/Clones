@@ -25,13 +25,13 @@ namespace EnemyCore
 
         #region Behavior
 
-        [SerializeField] private EnemyIdleSOBase idleBase;
-        [SerializeField] private EnemyChaseSOBase chaseBase;
-        [SerializeField] private EnemyAttackSOBase attackBase;
+        [SerializeField] protected EnemyIdleSOBase idleBase;
+        [SerializeField] protected EnemyChaseSOBase chaseBase;
+        [SerializeField] protected EnemyAttackSOBase attackBase;
     
-        public EnemyIdleSOBase IdleBase { get; private set; }
-        public EnemyChaseSOBase ChaseBase { get; private set; }
-        public EnemyAttackSOBase AttackBase { get; private set; }
+        public EnemyIdleSOBase IdleBase { get; protected set; }
+        public EnemyChaseSOBase ChaseBase { get; protected set; }
+        public EnemyAttackSOBase AttackBase { get; protected set; }
         
         #endregion
 
@@ -64,7 +64,7 @@ namespace EnemyCore
             BounceState = new EnemyBounceState(this, StateMachine);
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             // IdleBase.Initialize(gameObject, this);
             ChaseBase.Initialize(gameObject, this);
@@ -91,13 +91,14 @@ namespace EnemyCore
             transform.localScale = Vector3.one * Stats.SizeScale;
         }
 
-        public void Damage(int value)
+        public virtual void Damage(int value)
         {
+            UIManager.Instance.CreateFloatText(transform, value, Color.cyan);
             CurrentHealth -= value;
             if (CurrentHealth < 0) Die();
         }
 
-        public void Die()
+        public virtual void Die()
         {
             EnemyManager.Instance.EnemyDied(this);
             // DropItems();
@@ -119,8 +120,12 @@ namespace EnemyCore
 
         public override void Move()
         {
-            const float timeScaleResistant = 0f;
-            MoveWithoutRb(Target.position, Stats.Speed, timeScaleResistant);
+            MoveWithoutRb(Target.position, Stats.Speed, Stats.TimeScaleResistant);
+        }
+
+        public void Move(Vector2 position, float speed)
+        {
+            MoveWithoutRb(position, speed, Stats.TimeScaleResistant);
         }
 
         #region Animation Triggers

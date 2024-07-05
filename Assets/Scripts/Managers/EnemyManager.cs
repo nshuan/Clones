@@ -6,13 +6,15 @@ using Characters;
 using Core;
 using EnemyCore;
 using EnemyCore.EnemyData;
+using Managers.Spawner;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class EnemyManager : MonoSingleton<EnemyManager>
 {
     private const string EnemyCollectionPath = "EnemyCollection";
-    
+
+    [SerializeField] private EnemySpawner enemySpawner;
     public EnemyCollection EnemyCollection { get; private set; }
 
     [HideInInspector] public bool bossing = false;
@@ -39,7 +41,7 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
     public void EnemyHit(int id, int damaged)
     {
-        // UIManager.Instance.CreateFloatText(enemyBuffer[id].transform, damaged, Color.cyan);
+        
     }
 
     public void EnemyDied(Enemy enemy)

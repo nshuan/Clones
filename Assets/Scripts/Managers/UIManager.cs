@@ -152,11 +152,6 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region Boss Informations
-    public void BossFightIntro(float duration)
-    {
-        bossIntro = true;
-        bossIntroTime = duration;
-    }
 
     public void BossFightUI(string bossName)
     {

@@ -112,6 +112,8 @@ namespace PlayerCore
         public void Damage(int value)
         {
             if (Equals(StateMachine.CurrentState, DashState)) return;
+            
+            UIManager.Instance.CreateFloatText(transform, value, Color.red);
             // Decrease health
             CurrentHealth -= value;
             UIManager.Instance.UpdateHealthBar(CurrentHealth, MaxHealth);
@@ -137,7 +139,7 @@ namespace PlayerCore
             MoveWithRb(_rb2d, direction, speed, TimeScaleResistant);
         }
 
-        public void Stand()
+        public override void Stand()
         {
             _rb2d.velocity = Vector2.zero;
             StateMachine.ChangeState(IdleState);

@@ -1,5 +1,7 @@
 using System;
+using Characters;
 using Core;
+using EnemyCore;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -89,5 +91,14 @@ namespace Managers
             else
                 GameManager.Instance.PauseGame();
         }
+
+        #region CHEAT
+
+        public void OnUpScore(InputAction.CallbackContext context)
+        {
+            EnemyManager.Instance.EnemyDied(EnemyManager.Instance.EnemyCollection.GetEnemy(EnemyType.Normie));
+        }
+
+        #endregion
     }
 }

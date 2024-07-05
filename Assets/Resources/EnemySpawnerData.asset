@@ -14,21 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnerThresholds:
   - <LevelThreshold>k__BackingField: 0
-    <MaxSpawnedEnemy>k__BackingField: 8
-    <SpawnRate>k__BackingField: 2
-    <SpawnableTypes>k__BackingField:
-    - <EnemyType>k__BackingField: 0
-      <Chance>k__BackingField: 0.2
-    - <EnemyType>k__BackingField: 1
-      <Chance>k__BackingField: 0.2
-    - <EnemyType>k__BackingField: 2
-      <Chance>k__BackingField: 0.2
-    - <EnemyType>k__BackingField: 3
-      <Chance>k__BackingField: 0.2
-    - <EnemyType>k__BackingField: 4
-      <Chance>k__BackingField: 0.2
-    <IsBossLevel>k__BackingField: 0
-  - <LevelThreshold>k__BackingField: 1
     <MaxSpawnedEnemy>k__BackingField: 4
     <SpawnRate>k__BackingField: 0.5
     <SpawnableTypes>k__BackingField:
@@ -42,9 +27,11 @@ MonoBehaviour:
     <SpawnRate>k__BackingField: 2
     <SpawnableTypes>k__BackingField:
     - <EnemyType>k__BackingField: 0
-      <Chance>k__BackingField: 0.7
+      <Chance>k__BackingField: 0.5
     - <EnemyType>k__BackingField: 2
       <Chance>k__BackingField: 0.3
+    - <EnemyType>k__BackingField: 5
+      <Chance>k__BackingField: 0.2
     <IsBossLevel>k__BackingField: 0
   - <LevelThreshold>k__BackingField: 3
     <MaxSpawnedEnemy>k__BackingField: 6
@@ -61,12 +48,37 @@ MonoBehaviour:
     <MaxSpawnedEnemy>k__BackingField: 6
     <SpawnRate>k__BackingField: 2
     <SpawnableTypes>k__BackingField:
-    - <EnemyType>k__BackingField: 0
+    - <EnemyType>k__BackingField: 5
       <Chance>k__BackingField: 0.3
     - <EnemyType>k__BackingField: 2
       <Chance>k__BackingField: 0.3
-    - <EnemyType>k__BackingField: 3
+    - <EnemyType>k__BackingField: 6
       <Chance>k__BackingField: 0.3
     - <EnemyType>k__BackingField: 4
       <Chance>k__BackingField: 0.1
+    <IsBossLevel>k__BackingField: 0
+  - <LevelThreshold>k__BackingField: 5
+    <MaxSpawnedEnemy>k__BackingField: 1
+    <SpawnRate>k__BackingField: 1
+    <SpawnableTypes>k__BackingField: []
+    <IsBossLevel>k__BackingField: 1
+  - <LevelThreshold>k__BackingField: 6
+    <MaxSpawnedEnemy>k__BackingField: 4
+    <SpawnRate>k__BackingField: 2
+    <SpawnableTypes>k__BackingField:
+    - <EnemyType>k__BackingField: 6
+      <Chance>k__BackingField: 0.5
+    - <EnemyType>k__BackingField: 3
+      <Chance>k__BackingField: 0.5
+    <IsBossLevel>k__BackingField: 0
+  - <LevelThreshold>k__BackingField: 7
+    <MaxSpawnedEnemy>k__BackingField: 5
+    <SpawnRate>k__BackingField: 2
+    <SpawnableTypes>k__BackingField:
+    - <EnemyType>k__BackingField: 5
+      <Chance>k__BackingField: 0.3
+    - <EnemyType>k__BackingField: 7
+      <Chance>k__BackingField: 0.4
+    - <EnemyType>k__BackingField: 2
+      <Chance>k__BackingField: 0.3
     <IsBossLevel>k__BackingField: 0

@@ -43,6 +43,9 @@ namespace Characters
         Runner,
         Hunter,
         Soldier,
-        Tanker
+        Tanker,
+        Detective,
+        Buster,
+        Bomber
     }
 }

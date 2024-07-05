@@ -20,7 +20,8 @@ namespace EnemyCore.EnemyData
         [field: SerializeField] public GunType GunType { get; private set; }
         [field: SerializeField] public int SoulFragment { get; private set; }
         [field: SerializeField] public int Coin { get; private set; }
-
+        [field: SerializeField] public float TimeScaleResistant { get; private set; } = 0f;
+        
         public EnemyStats SetupFragments(int soul, int coin)
         {
             this.SoulFragment = soul;

@@ -55,6 +55,7 @@ namespace PlayerCore.Trigger_Checks
                     // Debug.Log("---- Player hurt " + bullet.Damage);
 #endif
                     Player.Damage(bullet.Damage);
+                    bullet.BulletHit(transform);
                     PoolManager.Instance.Release(bullet);
                 }
             }

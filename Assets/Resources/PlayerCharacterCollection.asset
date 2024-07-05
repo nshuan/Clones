@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: PlayerCharacterCollection
   m_EditorClassIdentifier: 
   characters:
-  - {fileID: 11400000, guid: 7874f717840fa5e47811f940bd783455, type: 2}
   - {fileID: 11400000, guid: 5687dc8e822438b42b49ae288ef20a21, type: 2}
+  - {fileID: 11400000, guid: 7874f717840fa5e47811f940bd783455, type: 2}
   - {fileID: 11400000, guid: a150631a4c257634881e633b265f8bcb, type: 2}
+  - {fileID: 11400000, guid: d84a42fcd73064445a6960e7d06b0da3, type: 2}
+  - {fileID: 11400000, guid: ff17d96686d5eca4a860a2a529ef14f9, type: 2}
+  - {fileID: 11400000, guid: d86d07b77e9dfde41a153e41e9cac479, type: 2}

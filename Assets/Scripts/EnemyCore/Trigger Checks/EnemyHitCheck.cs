@@ -54,9 +54,10 @@ namespace EnemyCore.Trigger_Checks
                 if (hit.collider.gameObject.TryGetComponent<BulletBehavior>(out var bullet))
                 {
 #if UNITY_EDITOR
-                    Debug.Log("---- Enemy " + _enemy.gameObject.name + " hurt " + bullet.Damage);
+                    // Debug.Log("---- Enemy " + _enemy.gameObject.name + " hurt " + bullet.Damage);
 #endif
                     _enemy.Damage(bullet.Damage);
+                    bullet.BulletHit(transform);
                     PoolManager.Instance.Release(bullet);
                 }
             }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core.ObjectPooling;
+using EnemyCore;
+using PlayerCore;
 using UnityEngine;
 
 public abstract class BulletBehavior : MonoBehaviour
@@ -32,7 +34,7 @@ public abstract class BulletBehavior : MonoBehaviour
             BulletHit(null);
 
         Move();
-        CheckHit();
+        // CheckHit();
     }
 
     public void SetBulletStats(int damage, float startSpeed, float lifeLength, Vector2 startDirection, Color color, string layerName)
@@ -74,9 +76,10 @@ public abstract class BulletBehavior : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, transform.localScale.x * 0.5f, direction, 0.001f, obstacleLayer);
         if (hit.collider != null)
         { 
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")
-                || hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
-                hit.transform.GetComponent<CharacterBehavior>()?.Damaged(Random.Range(Damage - 2, Damage + 2));
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                hit.transform.GetComponent<Enemy>()?.Damage(Random.Range(Damage - 2, Damage + 2));
+            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+                hit.transform.GetComponent<PlayerBehavior>()?.Damage(Random.Range(Damage - 2, Damage + 2));
             
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("ItemCrystal"))
                 hit.transform.GetComponent<ItemCrystal>().Damaged();

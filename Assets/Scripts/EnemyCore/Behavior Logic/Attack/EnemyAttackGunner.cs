@@ -25,16 +25,6 @@ namespace EnemyCore.Behavior_Logic.Attack
             SetupGun(GunManager.Instance.GetGun(enemy.Stats.GunType));
         }
 
-        public override void DoEnterLogic()
-        {
-            base.DoEnterLogic();
-        }
-
-        public override void DoExitLogic()
-        {
-            base.DoExitLogic();
-        }
-
         public override void DoFrameUpdateLogic()
         {
             base.DoFrameUpdateLogic();
@@ -53,21 +43,6 @@ namespace EnemyCore.Behavior_Logic.Attack
             if (EnemyRef.IsWithinStrikingDistance == false) EnemyRef.StateMachine.ChangeState(EnemyRef.ChaseState);
         }
 
-        public override void DoPhysicsUpdateLogic()
-        {
-            base.DoPhysicsUpdateLogic();
-        }
-
-        public override void DoAnimationTriggerEventLogic(AnimationTriggerType triggerType)
-        {
-            base.DoAnimationTriggerEventLogic(triggerType);
-        }
-
-        public override void ResetValue()
-        {
-            base.ResetValue();
-        }
-        
         protected void Fire()
         {
             if (_gun is null) return;

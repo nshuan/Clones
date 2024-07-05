@@ -14999,9 +14999,10 @@ MonoBehaviour:
     <SizeScale>k__BackingField: 1.6
     <VisualColor>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
     <HasGun>k__BackingField: 1
-    <GunType>k__BackingField: 4
+    <GunType>k__BackingField: 6
     <SoulFragment>k__BackingField: 3
-    <Coin>k__BackingField: 0
+    <Coin>k__BackingField: 20
+    <TimeScaleResistant>k__BackingField: 0
 --- !u!1 &7682142685753565135
 GameObject:
   m_ObjectHideFlags: 0

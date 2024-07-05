@@ -23,10 +23,13 @@ public class GunCollection : ScriptableObject
 public enum GunType
 {
     Pistol,
+    DoubleBarrel,
+    TripleBarrel,
     Shotgun,
     Smg,
     TwinSmg,
     CherryCanon,
     Cherry8,
-    Cherry16
+    Cherry16,
+    TwinCherry
 }

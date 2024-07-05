@@ -29,6 +29,9 @@ public class TheDot : CharacterBehavior
     private float attackCdCounter = 0f;
     #endregion
 
+    private int currentHealth;
+    private int maxHealth;
+
     void Start()
     {
         target = GameManager.Instance.player;
@@ -37,8 +40,8 @@ public class TheDot : CharacterBehavior
         gunBullet = gun.GetBullet();
         gunCooldown = 1 / 1.6f / gun.GetFireRate();
 
-        // maxHealth = 1000;
-        // health = maxHealth;
+        maxHealth = 1000;
+        currentHealth = maxHealth;
         // speed = 6;
         bulletOffset = 0f;
         soulFragment = 8;
@@ -95,8 +98,8 @@ public class TheDot : CharacterBehavior
     public TheDot SetupStats(string name, int maxHealth, int soul, int damage, float speed, float attackRange, float sizeScale)
     {
         this.name = name;
-        // this.maxHealth = maxHealth;
-        // this.health = maxHealth;
+        this.maxHealth = maxHealth;
+        this.currentHealth = maxHealth;
         this.soulFragment = soul;
         // this.damage = damage;
         // this.speed = speed;
@@ -134,9 +137,9 @@ public class TheDot : CharacterBehavior
     {
         if (damageImmune) return;
         
-        // health -= value;
-        // UIManager.Instance.UpdateBossHealthBar(health, maxHealth);
-        // if (health < maxHealth / 2)
+        currentHealth -= value;
+        UIManager.Instance.UpdateBossHealthBar(currentHealth, maxHealth);
+        if (currentHealth < maxHealth / 2)
         {
             if (phase == 1)
             {
@@ -146,11 +149,11 @@ public class TheDot : CharacterBehavior
             }
         }
 
-        // if (health < 0)
-        // {
-        //     Die();
-        //     return;
-        // }
+        if (currentHealth < 0)
+        {
+            Die();
+            return;
+        }
 
     }
 
